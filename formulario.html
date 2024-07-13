@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Confirmación</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<style>
+    body {
+        scroll-behavior: smooth;
+        background-image: url('img/bg.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .game {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #canvas {
+        border: 2px solid black;
+        /* Estilo para asegurar que el canvas sea visible */
+    }
+
+    .center {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 style="color: white;">Confirmación de Asistencia</h1>
+    </header>
+    <main>
+        <form id="formulario" method="post" onsubmit="enviarDatos(event)">
+            <label for="nombre" style="color: white;">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="apellido" style="color: white;">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required><br><br>
+
+            <label for="acompanantes" style="color: white;">Número de acompañantes:</label>
+            <select id="acompanantes" name="acompanantes">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select><br><br>
+
+            <label for="email" style="color: white;">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="asistencia" style="color: white;">Asistencia:</label>
+            <select id="asistencia" name="asistencia">
+                <option value="voy_seguro">Voy seguro</option>
+                <option value="puedo_cambiar">Puedo cambiar de opinión</option>
+            </select><br><br>
+
+            <button type="submit">Confirmar</button>
+        </form>
+
+        <!-- Botón para regresar a la página de invitación -->
+        <button onclick="regresarAInvitacion()">Regresar a la invitación</button>
+    </main>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAiGVZtmlGJmU386DR0PI2k-BWMK8SLvoE",
+            authDomain: "levelup-wedding.firebaseapp.com",
+            projectId: "levelup-wedding",
+            storageBucket: "levelup-wedding.appspot.com",
+            messagingSenderId: "240732359221",
+            appId: "1:240732359221:web:4be49e7c975d56504bbf7c"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Firestore
+        var db = firebase.firestore();
+
+        // Función para enviar los datos del formulario a Firestore
+        async function enviarDatos(event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+            var nombre = document.getElementById('nombre').value;
+            var apellido = document.getElementById('apellido').value;
+            var acompanantes = document.getElementById('acompanantes').value;
+            var email = document.getElementById('email').value;
+            var asistencia = document.getElementById('asistencia').value;
+
+            try {
+                // Guarda los datos en Firestore en la colección "confirmaciones"
+                await db.collection("confirmaciones").doc(nombre.toLowerCase().replace(/\s+/g, "_")).set({
+                    nombre: nombre,
+                    apellido: apellido,
+                    acompanantes: acompanantes,
+                    email: email,
+                    asistencia: asistencia,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                console.log("Datos guardados correctamente en Firestore.");
+                alert("¡Gracias por confirmar tu asistencia!");
+                document.getElementById("formulario").reset(); // Resetea el formulario después de enviar los datos
+            } catch (error) {
+                console.error("Error al guardar datos en Firestore: ", error);
+                alert("Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo.");
+            }
+        }
+
+        // Función para regresar a la página de invitación
+        function regresarAInvitacion() {
+            window.location.href = 'invitacion.html';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        scroll-behavior: smooth;
+        background-image: url('img/bg.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .game {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #canvas {
+        border: 2px solid black;
+        /* Estilo para asegurar que el canvas sea visible */
+    }
+
+    .center {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 style="color: white;">¿Vas a la fiesta?</h1>
+    </header>
+    <main>
+        <button onclick="irAFormulario()">¡Sí, voy!</button>
+        <button onclick="noVoy()">No puedo ir</button>
+        <button onclick="volver()">Volver</button>
+    </main>
+
+    <script>
+        function irAFormulario() {
+            window.location.href = 'formulario.html';
+        }
+
+        function noVoy() {
+            alert('¡HIJO DE PUTA!.');
+            // Puedes redirigir o realizar otras acciones según sea necesario
+        }
+
+        function volver() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
