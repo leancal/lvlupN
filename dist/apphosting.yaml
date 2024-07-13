@@ -1,0 +1,18 @@
+# Settings for Cloud Run
+runConfig:
+  minInstances: 1
+  maxInstances: 5
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+
+# Environment variables
+env:
+  - variable: STORAGE_BUCKET
+    value: mybucket.appspot.com
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: API_KEY
+    secret: myApiKeySecret
