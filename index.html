@@ -49,22 +49,33 @@
       text-align: center;
     }
 
-    .touch-controls {
+    #touchControls {
       position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 60%;
+      left: 10%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      border-radius: 10px;
     }
 
-    .touch-controls button {
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-      margin: 0 5px;
-      touch-action: manipulation;
-      /* Asegura una respuesta táctil precisa */
+    .control-btn {
+      font-size: 1.5rem;
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      border-radius: 50%;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-btn:hover {
+      background-color: #2980b9;
     }
 
     @media (max-width: 1260px) {
@@ -133,15 +144,17 @@
   <div class="game">
     <img id="gameboy" src="img/gameboy.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
-    <div class="touch-controls">
-      <button id="btnUp">↑</button>
-      <button id="btnLeft">←</button>
-      <button id="btnRight">→</button>
-      <button id="btnDown">↓</button>
+    <div id="touchControls">
+      <button class="control-btn" id="btnUp">↑</button><br>
+      <div>
+        <button class="control-btn" id="btnLeft">←</button>
+        <button class="control-btn" id="btnRight">→</button>
+      </div>
+      <button class="control-btn" id="btnDown">↓</button>
     </div>
   </div>
   <div class="gameover center">
-    <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
+    <button class="restart-button" onclick="reiniciarJuego()">Reiniciar</button>
     <button class="pause-button" onclick="togglePause()">Pausa</button>
   </div>
   <footer>
@@ -150,7 +163,6 @@
 
   <script src="dist/game.min.js"></script>
   <script src="js/gameManager.js"></script>
-  <script src="js/eventsManager.js"></script>
   <script>
     let gameManager = null;
 
@@ -160,47 +172,43 @@
         ctx: document.getElementById('canvas').getContext('2d'),
         callbacks: {
           gameOver: function (score, win) {
+            // Implementa la lógica de juego terminado si es necesario
           },
           updateScore: function (score) {
+            // Implementa la actualización de puntuación si es necesario
           }
         }
       });
 
       gameManager.run();
 
+      // Eventos para los controles táctiles
+      document.getElementById('btnUp').addEventListener('click', function () {
+        gameManager.controls.onKeyDown({ code: 'KeyW' });
+      });
+      document.getElementById('btnDown').addEventListener('click', function () {
+        gameManager.controls.onKeyDown({ code: 'KeyS' });
+      });
+      document.getElementById('btnLeft').addEventListener('click', function () {
+        gameManager.controls.onKeyDown({ code: 'KeyA' });
+      });
+      document.getElementById('btnRight').addEventListener('click', function () {
+        gameManager.controls.onKeyDown({ code: 'KeyD' });
+      });
+
+      // Detectar si se toca fuera del botón para liberar la tecla correspondiente
+      document.getElementById('touchControls').addEventListener('mouseup', function () {
+        gameManager.controls.onKeyUp({ code: 'KeyW' });
+        gameManager.controls.onKeyUp({ code: 'KeyS' });
+        gameManager.controls.onKeyUp({ code: 'KeyA' });
+        gameManager.controls.onKeyUp({ code: 'KeyD' });
+      });
+
+      // Toggle pause con la barra espaciadora como antes
       window.addEventListener('keydown', function (event) {
         if (event.code === 'Space') {
           togglePause();
         }
-      });
-
-      // Eventos táctiles para los botones de dirección
-      document.getElementById('btnUp').addEventListener('touchstart', function () {
-        gameManager.controls.action.up = true;
-      });
-      document.getElementById('btnUp').addEventListener('touchend', function () {
-        gameManager.controls.action.up = false;
-      });
-
-      document.getElementById('btnLeft').addEventListener('touchstart', function () {
-        gameManager.controls.action.left = true;
-      });
-      document.getElementById('btnLeft').addEventListener('touchend', function () {
-        gameManager.controls.action.left = false;
-      });
-
-      document.getElementById('btnDown').addEventListener('touchstart', function () {
-        gameManager.controls.action.down = true;
-      });
-      document.getElementById('btnDown').addEventListener('touchend', function () {
-        gameManager.controls.action.down = false;
-      });
-
-      document.getElementById('btnRight').addEventListener('touchstart', function () {
-        gameManager.controls.action.right = true;
-      });
-      document.getElementById('btnRight').addEventListener('touchend', function () {
-        gameManager.controls.action.right = false;
       });
     };
 
@@ -216,6 +224,7 @@
       gameManager.togglePause();
     }
   </script>
+
 </body>
 
 </html>
