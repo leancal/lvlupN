@@ -49,35 +49,6 @@
       text-align: center;
     }
 
-    #touchControls {
-      position: absolute;
-      top: 60%;
-      left: 10%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(255, 255, 255, 0.5);
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .control-btn {
-      font-size: 1.5rem;
-      width: 60px;
-      height: 60px;
-      margin: 5px;
-      border-radius: 50%;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .control-btn:hover {
-      background-color: #2980b9;
-    }
-
     @media (max-width: 1260px) {
       #canvas {
         width: 33%;
@@ -93,8 +64,8 @@
 
     @media (max-width: 1024px) {
       #canvas {
-        width: 33%;
-        height: 32%;
+        width: 37%;
+        height: 36%;
         border: 2px solid black;
         border-radius: 10px;
         position: absolute;
@@ -106,8 +77,8 @@
 
     @media (max-width: 768px) {
       #canvas {
-        width: 33%;
-        height: 24%;
+        width: 82%;
+        height: 58%;
         border: 2px solid black;
         border-radius: 10px;
         position: absolute;
@@ -119,8 +90,8 @@
 
     @media (max-width: 425px) {
       #canvas {
-        width: 51%;
-        height: 18%;
+        width: 82%;
+        height: 35%;
         border: 2px solid black;
         border-radius: 10px;
         position: absolute;
@@ -144,19 +115,12 @@
   <div class="game">
     <img id="gameboy" src="img/gameboy.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
-    <div id="touchControls">
-      <button class="control-btn" id="btnUp">↑</button><br>
-      <div>
-        <button class="control-btn" id="btnLeft">←</button>
-        <button class="control-btn" id="btnRight">→</button>
-      </div>
-      <button class="control-btn" id="btnDown">↓</button>
-    </div>
   </div>
   <div class="gameover center">
-    <button class="restart-button" onclick="reiniciarJuego()">Reiniciar</button>
+    <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
     <button class="pause-button" onclick="togglePause()">Pausa</button>
   </div>
+
   <footer>
     <button onclick="irAInvitacion()">Ir a la invitación</button>
   </footer>
@@ -172,39 +136,14 @@
         ctx: document.getElementById('canvas').getContext('2d'),
         callbacks: {
           gameOver: function (score, win) {
-            // Implementa la lógica de juego terminado si es necesario
           },
           updateScore: function (score) {
-            // Implementa la actualización de puntuación si es necesario
           }
         }
       });
 
       gameManager.run();
 
-      // Eventos para los controles táctiles
-      document.getElementById('btnUp').addEventListener('click', function () {
-        gameManager.controls.onKeyDown({ code: 'KeyW' });
-      });
-      document.getElementById('btnDown').addEventListener('click', function () {
-        gameManager.controls.onKeyDown({ code: 'KeyS' });
-      });
-      document.getElementById('btnLeft').addEventListener('click', function () {
-        gameManager.controls.onKeyDown({ code: 'KeyA' });
-      });
-      document.getElementById('btnRight').addEventListener('click', function () {
-        gameManager.controls.onKeyDown({ code: 'KeyD' });
-      });
-
-      // Detectar si se toca fuera del botón para liberar la tecla correspondiente
-      document.getElementById('touchControls').addEventListener('mouseup', function () {
-        gameManager.controls.onKeyUp({ code: 'KeyW' });
-        gameManager.controls.onKeyUp({ code: 'KeyS' });
-        gameManager.controls.onKeyUp({ code: 'KeyA' });
-        gameManager.controls.onKeyUp({ code: 'KeyD' });
-      });
-
-      // Toggle pause con la barra espaciadora como antes
       window.addEventListener('keydown', function (event) {
         if (event.code === 'Space') {
           togglePause();
@@ -224,7 +163,6 @@
       gameManager.togglePause();
     }
   </script>
-
 </body>
 
 </html>
