@@ -50,17 +50,21 @@
     }
 
     .touch-controls {
-      display: none;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
     }
 
     .touch-controls button {
       width: 50px;
       height: 50px;
-      margin: 5px;
-      font-size: 20px;
-      background-color: rgba(255, 255, 255, 0.7);
-      border: 2px solid black;
-      border-radius: 5px;
+      font-size: 24px;
+      margin: 0 5px;
+      touch-action: manipulation;
+      /* Asegura una respuesta táctil precisa */
     }
 
     @media (max-width: 1260px) {
@@ -118,16 +122,6 @@
         width: 124%;
         height: auto;
       }
-
-      .touch-controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -139,6 +133,12 @@
   <div class="game">
     <img id="gameboy" src="img/gameboy.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
+    <div class="touch-controls">
+      <button id="btnUp">↑</button>
+      <button id="btnLeft">←</button>
+      <button id="btnRight">→</button>
+      <button id="btnDown">↓</button>
+    </div>
   </div>
   <div class="gameover center">
     <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
@@ -148,15 +148,9 @@
     <button onclick="irAInvitacion()">Ir a la invitación</button>
   </footer>
 
-  <div class="touch-controls">
-    <button id="up" onmousedown="simulateKeyDown('KeyW')" onmouseup="simulateKeyUp('KeyW')">W</button>
-    <button id="left" onmousedown="simulateKeyDown('KeyA')" onmouseup="simulateKeyUp('KeyA')">A</button>
-    <button id="down" onmousedown="simulateKeyDown('KeyS')" onmouseup="simulateKeyUp('KeyS')">S</button>
-    <button id="right" onmousedown="simulateKeyDown('KeyD')" onmouseup="simulateKeyUp('KeyD')">D</button>
-  </div>
-
   <script src="dist/game.min.js"></script>
   <script src="js/gameManager.js"></script>
+  <script src="js/eventsManager.js"></script>
   <script>
     let gameManager = null;
 
@@ -175,38 +169,40 @@
       gameManager.run();
 
       window.addEventListener('keydown', function (event) {
-        handleKeyPress(event.code, true);
+        if (event.code === 'Space') {
+          togglePause();
+        }
       });
 
-      window.addEventListener('keyup', function (event) {
-        handleKeyPress(event.code, false);
+      // Eventos táctiles para los botones de dirección
+      document.getElementById('btnUp').addEventListener('touchstart', function () {
+        gameManager.controls.action.up = true;
+      });
+      document.getElementById('btnUp').addEventListener('touchend', function () {
+        gameManager.controls.action.up = false;
+      });
+
+      document.getElementById('btnLeft').addEventListener('touchstart', function () {
+        gameManager.controls.action.left = true;
+      });
+      document.getElementById('btnLeft').addEventListener('touchend', function () {
+        gameManager.controls.action.left = false;
+      });
+
+      document.getElementById('btnDown').addEventListener('touchstart', function () {
+        gameManager.controls.action.down = true;
+      });
+      document.getElementById('btnDown').addEventListener('touchend', function () {
+        gameManager.controls.action.down = false;
+      });
+
+      document.getElementById('btnRight').addEventListener('touchstart', function () {
+        gameManager.controls.action.right = true;
+      });
+      document.getElementById('btnRight').addEventListener('touchend', function () {
+        gameManager.controls.action.right = false;
       });
     };
-
-    function handleKeyPress(keyCode, isKeyDown) {
-      switch (keyCode) {
-        case 'KeyW':
-          gameManager.eventsManager.action['up'] = isKeyDown;
-          break;
-        case 'KeyA':
-          gameManager.eventsManager.action['left'] = isKeyDown;
-          break;
-        case 'KeyS':
-          gameManager.eventsManager.action['down'] = isKeyDown;
-          break;
-        case 'KeyD':
-          gameManager.eventsManager.action['right'] = isKeyDown;
-          break;
-      }
-    }
-
-    function simulateKeyDown(key) {
-      handleKeyPress(key, true);
-    }
-
-    function simulateKeyUp(key) {
-      handleKeyPress(key, false);
-    }
 
     function reiniciarJuego() {
       window.location.reload();
