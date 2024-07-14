@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="css/home.css">
   <link rel="stylesheet" type="text/css" href="css/button.css">
   <link rel="icon" href='img/logo.png' type="image/x-icon'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel=" preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <title>Game Landing</title>
@@ -25,71 +26,200 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      position: relative;
+    }
+
+    #gameboy {
+      width: 82%;
+      height: auto;
     }
 
     #canvas {
+      width: 33%;
+      height: 45%;
       border: 2px solid black;
+      border-radius: 10px;
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .center {
       text-align: center;
     }
+
+    .touch-controls {
+      display: none;
+    }
+
+    .touch-controls button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 2px solid black;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 1260px) {
+      #canvas {
+        width: 33%;
+        height: 39%;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      #canvas {
+        width: 33%;
+        height: 32%;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      #canvas {
+        width: 33%;
+        height: 24%;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 425px) {
+      #canvas {
+        width: 51%;
+        height: 18%;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #gameboy {
+        width: 124%;
+        height: auto;
+      }
+
+      .touch-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1></h1>
   </header>
   <div class="game">
-    <div class="game center">
-      <canvas id="canvas" width="960" height="768"></canvas>
-    </div>
-    <div class="gameover center">
-      <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
-      <button class="pause-button" onclick="togglePause()">Pausa</button>
-    </div>
-    <footer>
-      <button onclick="irAInvitacion()">Ir a la invitación</button>
-    </footer>
-
-    <script src="dist/game.min.js"></script>
-    <script src="js/gameManager.js"></script>
-    <script>
-      let gameManager = null;
-
-      window.onload = function () {
-        gameManager = new GameManager({
-          canvas: document.getElementById('canvas'),
-          ctx: document.getElementById('canvas').getContext('2d'),
-          callbacks: {
-            gameOver: function (score, win) {
-            },
-            updateScore: function (score) {
-            }
-          }
-        });
-
-        gameManager.run();
-
-        window.addEventListener('keydown', function (event) {
-          if (event.code === 'Space') {
-            togglePause();
-          }
-        });
-      };
-
-      function reiniciarJuego() {
-        window.location.reload();
-      }
-
-      function irAInvitacion() {
-        window.location.href = 'invitacion.html';
-      }
-
-      function togglePause() {
-        gameManager.togglePause();
-      }
-    </script>
+    <img id="gameboy" src="img/gameboy.png" alt="Gameboy">
+    <canvas id="canvas" width="960" height="768"></canvas>
   </div>
+  <div class="gameover center">
+    <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
+    <button class="pause-button" onclick="togglePause()">Pausa</button>
+  </div>
+  <footer>
+    <button onclick="irAInvitacion()">Ir a la invitación</button>
+  </footer>
+
+  <div class="touch-controls">
+    <button id="up" onmousedown="simulateKeyDown('KeyW')" onmouseup="simulateKeyUp('KeyW')">W</button>
+    <button id="left" onmousedown="simulateKeyDown('KeyA')" onmouseup="simulateKeyUp('KeyA')">A</button>
+    <button id="down" onmousedown="simulateKeyDown('KeyS')" onmouseup="simulateKeyUp('KeyS')">S</button>
+    <button id="right" onmousedown="simulateKeyDown('KeyD')" onmouseup="simulateKeyUp('KeyD')">D</button>
+  </div>
+
+  <script src="dist/game.min.js"></script>
+  <script src="js/gameManager.js"></script>
+  <script>
+    let gameManager = null;
+
+    window.onload = function () {
+      gameManager = new GameManager({
+        canvas: document.getElementById('canvas'),
+        ctx: document.getElementById('canvas').getContext('2d'),
+        callbacks: {
+          gameOver: function (score, win) {
+          },
+          updateScore: function (score) {
+          }
+        }
+      });
+
+      gameManager.run();
+
+      window.addEventListener('keydown', function (event) {
+        handleKeyPress(event.code, true);
+      });
+
+      window.addEventListener('keyup', function (event) {
+        handleKeyPress(event.code, false);
+      });
+    };
+
+    function handleKeyPress(keyCode, isKeyDown) {
+      switch (keyCode) {
+        case 'KeyW':
+          gameManager.eventsManager.action['up'] = isKeyDown;
+          break;
+        case 'KeyA':
+          gameManager.eventsManager.action['left'] = isKeyDown;
+          break;
+        case 'KeyS':
+          gameManager.eventsManager.action['down'] = isKeyDown;
+          break;
+        case 'KeyD':
+          gameManager.eventsManager.action['right'] = isKeyDown;
+          break;
+      }
+    }
+
+    function simulateKeyDown(key) {
+      handleKeyPress(key, true);
+    }
+
+    function simulateKeyUp(key) {
+      handleKeyPress(key, false);
+    }
+
+    function reiniciarJuego() {
+      window.location.reload();
+    }
+
+    function irAInvitacion() {
+      window.location.href = 'invitacion.html';
+    }
+
+    function togglePause() {
+      gameManager.togglePause();
+    }
+  </script>
 </body>
+
 </html>

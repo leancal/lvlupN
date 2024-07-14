@@ -75,7 +75,7 @@ export class MapManager {
       289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 259, 260, 310, 311, 312,
       313, 314, 315, 316, 317, 318, 319, 396, 405, 364, 373, 332, 341, 428, 437,
       460, 469, 492, 493, 494, 499, 500, 501, 464, 465, 994, 995, 996, 997, 998,
-      999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1010,
+      999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010,
       1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022,
       1023,
     ];
@@ -89,16 +89,26 @@ export class MapManager {
       Math.floor(wY / this.tSize.y) * this.xCount +
       Math.floor(wX / this.tSize.x);
     let tileId = this.middleLayer.data[idx];
-    
+
     if (tileId === 464 || tileId === 465) {
       return true; // Regular exit
-    } else if (tileId === 1008 || tileId === 1009) {
-      this.handleWarning(); // Show warning and reload page
-      return false;
     }
-    
+
     return false;
   }
+
+  // isReturn(x, y) {
+  //   let wX = Math.floor(x / 2);
+  //   let wY = Math.floor(y / 2);
+  //   let idx =
+  //     Math.floor(wY / this.tSize.y) * this.xCount +
+  //     Math.floor(wX / this.tSize.x);
+  //   let tileId = this.middleLayer.data[idx];
+  //   if (tileId === 1008 || tileId === 1009) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   handleWarning() {
     window.showWarning(); // Call the function defined in the HTML
