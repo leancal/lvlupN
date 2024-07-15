@@ -54,6 +54,244 @@
       text-align: center;
     }
 
+    .center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .joystick {
+      width: 573px;
+      height: 261px;
+      transform-origin: center;
+    }
+
+    :root {
+      /* Colors  */
+      --green: #b5e27c;
+      --blue: #6ac3d5;
+      --light-green: #95dd62;
+      --grey: #dbd1c7;
+      --pink: #d9bccd;
+      --yellow: #dfd379;
+      --red: #d2636e;
+      --brown: #9b7188;
+      --dark: #53243d;
+      --rgbap: rgba(0, 0, 0, 0.2);
+      --rgbab: rgba(255, 255, 255, 0.5);
+
+      --stroke: 6px solid #53243d;
+      --radius: 50%;
+    }
+
+    button:active {
+      transform: scale(0.9);
+    }
+
+
+
+    .body-control {
+      background-color: var(--grey);
+      border-top: var(--stroke);
+      z-index: 9;
+      position: absolute;
+      width: 315px;
+      height: 233px;
+      transform: translatex(-50%);
+      left: 50%;
+      top: 0;
+      clip-path: polygon(0 0, 100% 0, 71% 100%, 29% 100%);
+      text-align: center;
+
+      box-shadow: inset 0px -6px var(--rgbap);
+    }
+
+    .stroke-base {
+      position: absolute;
+      background-color: var(--dark);
+      top: 238px;
+      z-index: -1;
+      width: 315px;
+      height: 7px;
+      transform: translatex(-50%);
+      left: 50%;
+    }
+
+    .controler {
+      position: fixed;
+    }
+
+    .left-hand .controler {
+      width: 163px;
+      height: 163px;
+      left: 13.7%;
+      top: 64%;
+      animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button {
+      border: var(--stroke);
+      background-color: var(--brown);
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      z-index: 9;
+    }
+
+    .left-hand .controler button:after {
+      content: "◂";
+      font-size: 30px;
+      font-family: sans-serif;
+      color: var(--dark);
+      position: absolute;
+      line-height: 0;
+    }
+
+    .left-hand .controler button.left:after {
+      left: 5px;
+      top: 8px;
+    }
+
+    .left-hand .controler button.right:after {
+      right: 5px;
+      top: 12px;
+      transform: rotate(180deg);
+    }
+
+    .left-hand .controler button.top:after {
+      left: 6px;
+      top: 12px;
+      transform: rotate(90deg);
+    }
+
+    .left-hand .controler button.bottom:after {
+      right: 4px;
+      bottom: 12px;
+      transform: rotate(-90deg);
+    }
+
+    .left-hand .controler button.left {
+      border-right: none !important;
+      box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+      top: 50%;
+      margin-top: -16px;
+      left: 38px;
+    }
+
+    .left-hand .controler button.top {
+      border-bottom: none !important;
+      box-shadow: inset 0 4px var(--rgbab);
+      left: 50%;
+      margin-left: -16px;
+      top: 38px;
+    }
+
+    .left-hand .controler button.right {
+      border-left: none !important;
+      box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+      top: 50%;
+      margin-top: -16px;
+      right: 38px;
+    }
+
+    .left-hand .controler button.bottom {
+      border-top: none !important;
+      box-shadow: inset 0 -4px var(--rgbap);
+      left: 50%;
+      margin-left: -16px;
+      bottom: 38px;
+    }
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background-color: var(--brown);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -15px;
+      z-index: 1;
+    }
+
+    .left-hand .controler:before {
+      border-radius: var(--radius);
+      border: 3px solid var(--dark);
+      z-index: 99;
+      box-sizing: border-box;
+      box-shadow: inset 4px 0 var(--rgbab);
+      transform: scale(0.8);
+    }
+
+
+    /* ANIMATIONS */
+    @keyframes fio {
+      0% {
+        top: -100%;
+      }
+
+      100% {
+        top: -50%;
+      }
+    }
+
+    @keyframes scale {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes starts {
+      0% {
+        top: 60%;
+        opacity: 0;
+      }
+
+      100% {
+        top: 50%;
+        opacity: 1;
+      }
+    }
+
+    @keyframes scale-bg {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(4);
+      }
+    }
+
+    @keyframes scale-reverse {
+      0% {
+        transform: scale(4);
+      }
+
+      100% {
+        transform: scale(0);
+      }
+    }
+
+    .left-hand .controler {
+      display: none;
+      width: 163px;
+      height: 163px;
+      left: 13.7%;
+      top: 64%;
+      animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
     @media (max-width: 1260px) {
       #canvas {
         width: 33%;
@@ -66,6 +304,15 @@
     }
 
     @media (max-width: 1024px) {
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: -14.3%;
+        top: 0%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
       #canvas {
         width: 37%;
         height: 36%;
@@ -77,6 +324,71 @@
     }
 
     @media (max-width: 768px) {
+
+      .left-hand .controler:after,
+      .left-hand .controler:before {
+        content: "";
+        width: 50px;
+        height: 46px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 46%;
+        left: 45%;
+        margin: -15px;
+
+      }
+
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        zoom: 55px;
+        scale: 87px;
+        height: 163px;
+        left: 0%;
+        top: 92%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
+      .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 51px;
+        height: 56px;
+        /* margin-top: -16px; */
+        left: 8px;
+      }
+
+      .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 50%;
+        margin-left: -27px;
+        top: 7px;
+        width: 57px;
+        height: 54px;
+      }
+
+      .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        margin-top: -16px;
+        right: 5px;
+        height: 56px;
+        width: 52px;
+      }
+
+      .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 53px;
+        width: 58px;
+        margin-left: -16px;
+        bottom: 6px;
+      }
+
       #canvas {
         width: 53%;
         height: 42%;
@@ -101,6 +413,15 @@
     }
 
     @media (max-width: 630px) {
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 13.7%;
+        top: 65%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
       #canvas {
         width: 54%;
         height: 36%;
@@ -125,6 +446,15 @@
     }
 
     @media (max-width: 480px) {
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 13.7%;
+        top: 65%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
       #canvas {
         width: 53%;
         height: 26%;
@@ -144,6 +474,15 @@
     }
 
     @media (max-width: 425px) {
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 13.7%;
+        top: 65%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
       #canvas {
         width: 68%;
         height: 27%;
@@ -168,6 +507,69 @@
     }
 
     @media (max-width: 375px) {
+
+      .left-hand .controler:after,
+      .left-hand .controler:before {
+        content: "";
+        width: 37px;
+        height: 31px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 46%;
+        left: 53%;
+        margin: -15px;
+      }
+
+      .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 14.7%;
+        top: 60%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+      }
+
+      .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 31px;
+        height: 41px;
+        /* margin-top: -16px; */
+        left: 41px;
+      }
+
+      .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -27px;
+        top: 22px;
+        width: 41px;
+        height: 41px;
+      }
+
+      .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        margin-top: -16px;
+        right: 14px;
+        height: 41px;
+        width: 41px;
+      }
+
+      .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 41px;
+        width: 41px;
+        margin-left: 0px;
+        bottom: 36px;
+      }
+
+
       #canvas {
         width: 68%;
         height: 27%;
@@ -190,29 +592,6 @@
         overflow-y: hidden;
       }
     }
-
-    .virtual-joystick {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      width: 120px;
-      height: 120px;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-    }
-
-    .joystick {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      /* para que no interfiera con el evento touch */
-    }
   </style>
 </head>
 
@@ -223,17 +602,20 @@
   <div class="game">
     <img id="gameboy" src="img/gbPoket.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
-    <!-- <div class="touch-controls">
-      <button id="btnUp">↑</button>
-      <br>
-      <button id="btnLeft">←</button>
-      <button id="btnRight">→</button>
-      <br>
-      <button id="btnDown">↓</button>
-    </div> -->
-    <div class="virtual-joystick">
-      <div id="joystick" class="joystick"></div>
-    </div>
+
+    <section class="joystick center">
+      <div class="animations">
+        <aside class="left-hand">
+          <div class="controler">
+            <button id="btnLeft" class="left"><i></i></button>
+            <button id="btnUp" class="top"><i></i></button>
+            <button id="btnRight" class="right"><i></i></button>
+            <button id="btnDown" class="bottom"><i></i></button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
 
 
   </div>
@@ -246,23 +628,26 @@
     <button onclick="irAInvitacion()">Ir a la invitación</button>
   </footer>
 
+  <script src="./public/src/entities.js"></script>
+  <script src="./public/src/EventsManager.js"></script>
   <script src="dist/game.min.js"></script>
   <script src="./public/src/gameManager.js"></script>
   <script>
     let gameManager = null;
+    let eventsManager = null;
 
     window.onload = function () {
+      const canvas = document.getElementById('canvas');
       gameManager = new GameManager({
-        canvas: document.getElementById('canvas'),
-        ctx: document.getElementById('canvas').getContext('2d'),
+        canvas: canvas,
+        ctx: canvas.getContext('2d'),
         callbacks: {
-          gameOver: function (score, win) {
-          },
-          updateScore: function (score) {
-          }
+          gameOver: function (score, win) { },
+          updateScore: function (score) { }
         }
       });
 
+      eventsManager = new EventsManager(canvas);
       gameManager.run();
 
       window.addEventListener('keydown', function (event) {
@@ -271,68 +656,6 @@
         }
       });
     };
-
-    function reiniciarJuego() {
-      window.location.reload();
-    }
-
-    const joystick = document.getElementById('joystick');
-    const joystickRect = joystick.getBoundingClientRect();
-    const joystickRadius = joystickRect.width / 2;
-
-    joystick.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      handleJoystickTouch(e.touches[0]);
-    });
-
-    joystick.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      handleJoystickTouch(e.touches[0]);
-    });
-
-    joystick.addEventListener('touchend', () => {
-      resetJoystick();
-    });
-
-    function handleJoystickTouch(touch) {
-      let centerX = joystickRect.left + joystickRadius;
-      let centerY = joystickRect.top + joystickRadius;
-      let touchX = touch.clientX;
-      let touchY = touch.clientY;
-
-      // Calcula la distancia del touch al centro del joystick
-      let distanceX = touchX - centerX;
-      let distanceY = touchY - centerY;
-
-      // Calcula el ángulo y la magnitud
-      let angle = Math.atan2(distanceY, distanceX);
-      let magnitude = Math.min(1, Math.sqrt(distanceX * distanceX + distanceY * distanceY) / joystickRadius);
-
-      // Determina las direcciones según el ángulo y la magnitud
-      this.action['left'] = false;
-      this.action['right'] = false;
-      this.action['up'] = false;
-      this.action['down'] = false;
-
-      if (magnitude > 0.2) {
-        if (angle > -Math.PI / 4 && angle <= Math.PI / 4) {
-          this.action['right'] = true;
-        } else if (angle > Math.PI / 4 && angle <= 3 * Math.PI / 4) {
-          this.action['down'] = true;
-        } else if (angle > -3 * Math.PI / 4 && angle <= -Math.PI / 4) {
-          this.action['up'] = true;
-        } else {
-          this.action['left'] = true;
-        }
-      }
-    }
-
-    function resetJoystick() {
-      this.action['left'] = false;
-      this.action['right'] = false;
-      this.action['up'] = false;
-      this.action['down'] = false;
-    }
 
     function irAInvitacion() {
       window.location.href = 'invitacion.html';
@@ -357,6 +680,7 @@
     window.addEventListener('load', cambiarImagen);
     window.addEventListener('resize', cambiarImagen);
   </script>
+
 </body>
 
 </html>
