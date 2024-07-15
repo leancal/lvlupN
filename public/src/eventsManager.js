@@ -7,8 +7,9 @@ export class EventsManager {
     document.addEventListener("keydown", (e) => this.onKeyDown(e));
     document.addEventListener("keyup", (e) => this.onKeyUp(e));
     canvas.addEventListener("mousedown", (e) => this.onMouseDown(e));
-    canvas.addEventListener("touchstart", (e) => this.onTouchStart(e)); // Agregar evento de inicio de toque
-    canvas.addEventListener("touchend", (e) => this.onTouchEnd(e));     // Agregar evento de fin de toque
+    canvas.addEventListener("touchstart", (e) => this.onTouchStart(e));
+    canvas.addEventListener("touchmove", (e) => this.onTouchMove(e));
+    canvas.addEventListener("touchend", (e) => this.onTouchEnd(e));
 
     this.action = {
       left: false,
@@ -46,14 +47,22 @@ export class EventsManager {
 
   onTouchStart(event) {
     event.preventDefault();
-    let touch = event.touches[0];
-    this.handleTouch(touch, true);
+    for (let touch of event.touches) {
+      this.handleTouch(touch, true);
+    }
   }
 
+  onTouchMove(event) {
+    event.preventDefault();
+    for (let touch of event.touches) {
+      this.handleTouch(touch, true);
+    }
+  }
   onTouchEnd(event) {
     event.preventDefault();
-    let touch = event.changedTouches[0];
-    this.handleTouch(touch, false);
+    for (let touch of event.changedTouches) {
+      this.handleTouch(touch, false);
+    }
   }
 
   handleTouch(touch, isActive) {
@@ -61,23 +70,26 @@ export class EventsManager {
     let touchX = touch.clientX - this.rect.left;
     let touchY = touch.clientY - this.rect.top;
 
-    // Identifica si el toque está en una zona específica del canvas y asigna acciones
+    // Restablece todas las acciones a false para evitar movimientos diagonales persistentes
+    this.action['left'] = false;
+    this.action['right'] = false;
+    this.action['up'] = false;
+    this.action['down'] = false;
+
+    // Identifica la dirección del movimiento basada en la posición del toque
     if (touchX < this.rect.width / 2) {
       this.action['left'] = isActive;
-      this.action['right'] = !isActive;
     } else {
       this.action['right'] = isActive;
-      this.action['left'] = !isActive;
     }
 
     if (touchY < this.rect.height / 2) {
       this.action['up'] = isActive;
-      this.action['down'] = !isActive;
     } else {
       this.action['down'] = isActive;
-      this.action['up'] = !isActive;
     }
   }
+
 
   onMouseDown(event) {
     if (event.button === 0) {
@@ -89,4 +101,6 @@ export class EventsManager {
     this.mouseCoords = new Vec(event.clientX - this.rect.left, event.clientY - this.rect.top);
   }
 }
+
+
 
