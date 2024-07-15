@@ -190,6 +190,37 @@
         overflow-y: hidden;
       }
     }
+
+    .touch-controls {
+      display: none;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .touch-controls button {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Mostrar los controles táctiles en pantallas pequeñas */
+    @media (max-width: 768px) {
+      .touch-controls {
+        display: flex;
+      }
+    }
   </style>
 </head>
 
@@ -200,6 +231,13 @@
   <div class="game">
     <img id="gameboy" src="img/gbPoket.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
+    <!-- Botones de flechas táctiles -->
+    <div class="touch-controls">
+      <button id="btn-up">&#9650;</button>
+      <button id="btn-left">&#9664;</button>
+      <button id="btn-right">&#9654;</button>
+      <button id="btn-down">&#9660;</button>
+    </div>
   </div>
   <div class="gameover center">
     <button class="restart-button" onclick="reiniciarJuego()">Restart</button>
@@ -262,6 +300,65 @@
     // Cambiar la imagen al cargar la página y al redimensionar la ventana
     window.addEventListener('load', cambiarImagen);
     window.addEventListener('resize', cambiarImagen);
+
+    window.onload = function () {
+      gameManager = new GameManager({
+        canvas: document.getElementById('canvas'),
+        ctx: document.getElementById('canvas').getContext('2d'),
+        callbacks: {
+          gameOver: function (score, win) {
+          },
+          updateScore: function (score) {
+          }
+        }
+      });
+
+      gameManager.run();
+
+      window.addEventListener('keydown', function (event) {
+        if (event.code === 'Space') {
+          togglePause();
+        }
+      });
+
+      // Añadir eventos táctiles para los botones de flechas
+      document.getElementById('btn-up').addEventListener('touchstart', () => {
+        gameManager.controls.action.up = true;
+        console.log('Flecha arriba presionada: acción "up" activada');
+      });
+      document.getElementById('btn-up').addEventListener('touchend', () => {
+        gameManager.controls.action.up = false;
+        console.log('Flecha arriba liberada: acción "up" desactivada');
+      });
+
+      document.getElementById('btn-left').addEventListener('touchstart', () => {
+        gameManager.controls.action.left = true;
+        console.log('Flecha izquierda presionada: acción "left" activada');
+      });
+      document.getElementById('btn-left').addEventListener('touchend', () => {
+        gameManager.controls.action.left = false;
+        console.log('Flecha izquierda liberada: acción "left" desactivada');
+      });
+
+      document.getElementById('btn-right').addEventListener('touchstart', () => {
+        gameManager.controls.action.right = true;
+        console.log('Flecha derecha presionada: acción "right" activada');
+      });
+      document.getElementById('btn-right').addEventListener('touchend', () => {
+        gameManager.controls.action.right = false;
+        console.log('Flecha derecha liberada: acción "right" desactivada');
+      });
+
+      document.getElementById('btn-down').addEventListener('touchstart', () => {
+        gameManager.controls.action.down = true;
+        console.log('Flecha abajo presionada: acción "down" activada');
+      });
+      document.getElementById('btn-down').addEventListener('touchend', () => {
+        gameManager.controls.action.down = false;
+        console.log('Flecha abajo liberada: acción "down" desactivada');
+      });
+    };
+
   </script>
 </body>
 
