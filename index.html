@@ -191,16 +191,27 @@
       }
     }
 
-    .touch-controls {
-      text-align: center;
-      margin-top: 20px;
+    .virtual-joystick {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 120px;
+      height: 120px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
     }
 
-    .touch-controls button {
-      font-size: 24px;
-      width: 50px;
-      height: 50px;
-      margin: 5px;
+    .joystick {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      /* para que no interfiera con el evento touch */
     }
   </style>
 </head>
@@ -220,6 +231,10 @@
       <br>
       <button id="btnDown">↓</button>
     </div> -->
+    <div class="virtual-joystick">
+      <div id="joystick" class="joystick"></div>
+    </div>
+
 
   </div>
   <div class="gameover center">
@@ -259,6 +274,64 @@
 
     function reiniciarJuego() {
       window.location.reload();
+    }
+
+    const joystick = document.getElementById('joystick');
+    const joystickRect = joystick.getBoundingClientRect();
+    const joystickRadius = joystickRect.width / 2;
+
+    joystick.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      handleJoystickTouch(e.touches[0]);
+    });
+
+    joystick.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      handleJoystickTouch(e.touches[0]);
+    });
+
+    joystick.addEventListener('touchend', () => {
+      resetJoystick();
+    });
+
+    function handleJoystickTouch(touch) {
+      let centerX = joystickRect.left + joystickRadius;
+      let centerY = joystickRect.top + joystickRadius;
+      let touchX = touch.clientX;
+      let touchY = touch.clientY;
+
+      // Calcula la distancia del touch al centro del joystick
+      let distanceX = touchX - centerX;
+      let distanceY = touchY - centerY;
+
+      // Calcula el ángulo y la magnitud
+      let angle = Math.atan2(distanceY, distanceX);
+      let magnitude = Math.min(1, Math.sqrt(distanceX * distanceX + distanceY * distanceY) / joystickRadius);
+
+      // Determina las direcciones según el ángulo y la magnitud
+      this.action['left'] = false;
+      this.action['right'] = false;
+      this.action['up'] = false;
+      this.action['down'] = false;
+
+      if (magnitude > 0.2) {
+        if (angle > -Math.PI / 4 && angle <= Math.PI / 4) {
+          this.action['right'] = true;
+        } else if (angle > Math.PI / 4 && angle <= 3 * Math.PI / 4) {
+          this.action['down'] = true;
+        } else if (angle > -3 * Math.PI / 4 && angle <= -Math.PI / 4) {
+          this.action['up'] = true;
+        } else {
+          this.action['left'] = true;
+        }
+      }
+    }
+
+    function resetJoystick() {
+      this.action['left'] = false;
+      this.action['right'] = false;
+      this.action['up'] = false;
+      this.action['down'] = false;
     }
 
     function irAInvitacion() {
