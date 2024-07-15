@@ -6,47 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación</title>
     <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            scroll-behavior: smooth;
+            background-image: url('img/bg.gif');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .game {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #gameboy {
+            position: absolute;
+            width: 87%;
+            height: auto;
+        }
+
+        @media (max-width: 1024px) {
+            #gameboy {
+                width: 167%;
+                height: auto;
+            }
+        }
+
+        header {
+            z-index: 1;
+        }
+
+        h1 {
+            color: rgb(0, 0, 0);
+            font-family: 'Press Start 2P', cursive;
+            margin: 0 0 20px;
+        }
+
+        main button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        main button:hover {
+            background-color: #45a049;
+        }
+
+        .gameContent {
+            z-index: 1;
+        }
+    </style>
 </head>
-<style>
-    body {
-        scroll-behavior: smooth;
-        background-image: url('img/bg.gif');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-
-    .game {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    #canvas {
-        border: 2px solid black;
-        /* Estilo para asegurar que el canvas sea visible */
-    }
-
-    .center {
-        text-align: center;
-    }
-</style>
 
 <body>
-    <header>
-        <h1 style="color: white;">¿Vas a la fiesta?</h1>
-    </header>
-    <main>
-        <button onclick="irAFormulario()">¡Sí, voy!</button>
-        <button onclick="noVoy()">No puedo ir</button>
-        <button onclick="volver()">Volver</button>
-    </main>
-
+    <div class="game">
+        <img id="gameboy" src="img/gameBoybg.png" alt="Gameboy">
+        <div class="gameContent">
+            <header>
+                <h1>¿Vas a la fiesta?</h1>
+            </header>
+            <main>
+                <button onclick="irAFormulario()">¡Sí, voy!</button>
+                <button onclick="noVoy()">No puedo ir</button>
+                <button onclick="volver()">Volver</button>
+            </main>
+        </div>
+    </div>
     <script>
         function irAFormulario() {
             window.location.href = 'formulario.html';
@@ -54,12 +96,23 @@
 
         function noVoy() {
             alert('¡HIJO DE PUTA!.');
-            // Puedes redirigir o realizar otras acciones según sea necesario
         }
 
         function volver() {
             window.location.href = 'index.html';
         }
+
+        function cambiarImagen() {
+            const gameboy = document.getElementById('gameboy');
+            if (window.innerWidth <= 768 || window.innerWidth <= 425) {
+                gameboy.src = 'img/gbPoket.png';
+            } else {
+                gameboy.src = 'img/gameBoybg.png';
+            }
+        }
+
+        window.addEventListener('load', cambiarImagen);
+        window.addEventListener('resize', cambiarImagen);
     </script>
 </body>
 
