@@ -7,8 +7,9 @@ export class EventsManager {
     document.addEventListener("keydown", (e) => this.onKeyDown(e));
     document.addEventListener("keyup", (e) => this.onKeyUp(e));
     canvas.addEventListener("mousedown", (e) => this.onMouseDown(e));
-    canvas.addEventListener("touchstart", (e) => this.onTouchStart(e)); // Agregar evento de inicio de toque
-    canvas.addEventListener("touchend", (e) => this.onTouchEnd(e));     // Agregar evento de fin de toque
+    canvas.addEventListener("touchstart", (e) => this.onTouchStart(e));
+    canvas.addEventListener("touchmove", (e) => this.onTouchMove(e));
+    canvas.addEventListener("touchend", (e) => this.onTouchEnd(e));
 
     this.action = {
       left: false,
@@ -46,14 +47,22 @@ export class EventsManager {
 
   onTouchStart(event) {
     event.preventDefault();
-    let touch = event.touches[0];
-    this.handleTouch(touch, true);
+    for (let touch of event.touches) {
+      this.handleTouch(touch, true);
+    }
   }
 
+  onTouchMove(event) {
+    event.preventDefault();
+    for (let touch of event.touches) {
+      this.handleTouch(touch, true);
+    }
+  }
   onTouchEnd(event) {
     event.preventDefault();
-    let touch = event.changedTouches[0];
-    this.handleTouch(touch, false);
+    for (let touch of event.changedTouches) {
+      this.handleTouch(touch, false);
+    }
   }
 
   handleTouch(touch, isActive) {
