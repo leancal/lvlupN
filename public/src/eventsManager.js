@@ -61,26 +61,23 @@ export class EventsManager {
     let touchX = touch.clientX - this.rect.left;
     let touchY = touch.clientY - this.rect.top;
 
-    // Restablece todas las acciones a false para evitar movimientos diagonales persistentes
-    this.action['left'] = false;
-    this.action['right'] = false;
-    this.action['up'] = false;
-    this.action['down'] = false;
-
-    // Identifica la dirección del movimiento basada en la posición del toque
+    // Identifica si el toque está en una zona específica del canvas y asigna acciones
     if (touchX < this.rect.width / 2) {
       this.action['left'] = isActive;
+      this.action['right'] = !isActive;
     } else {
       this.action['right'] = isActive;
+      this.action['left'] = !isActive;
     }
 
     if (touchY < this.rect.height / 2) {
       this.action['up'] = isActive;
+      this.action['down'] = !isActive;
     } else {
       this.action['down'] = isActive;
+      this.action['up'] = !isActive;
     }
   }
-
 
   onMouseDown(event) {
     if (event.button === 0) {
