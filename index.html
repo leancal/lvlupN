@@ -13,12 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <title>Game Landing</title>
   <style>
+    /* Estilos CSS existentes */
     body {
       scroll-behavior: smooth;
       background-image: url('img/bg.gif');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
 
     .game {
@@ -27,6 +31,7 @@
       align-items: center;
       height: 100vh;
       position: relative;
+      overflow: hidden;
     }
 
     #gameboy {
@@ -53,8 +58,6 @@
       #canvas {
         width: 33%;
         height: 39%;
-        border: 2px solid black;
-        border-radius: 10px;
         position: absolute;
         top: 48%;
         left: 50%;
@@ -66,8 +69,6 @@
       #canvas {
         width: 37%;
         height: 36%;
-        border: 2px solid black;
-        border-radius: 10px;
         position: absolute;
         top: 49%;
         left: 50%;
@@ -77,32 +78,116 @@
 
     @media (max-width: 768px) {
       #canvas {
-        width: 82%;
-        height: 58%;
-        border: 2px solid black;
-        border-radius: 10px;
+        width: 53%;
+        height: 42%;
         position: absolute;
-        top: 49%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    @media (max-width: 425px) {
-      #canvas {
-        width: 82%;
-        height: 35%;
-        border: 2px solid black;
-        border-radius: 10px;
-        position: absolute;
-        top: 49%;
+        top: 23%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
 
       #gameboy {
-        width: 124%;
+        width: 91%;
         height: auto;
+      }
+
+      .game {
+        height: 100vh;
+      }
+
+      body {
+        overflow-y: hidden;
+      }
+    }
+
+    @media (max-width: 630px) {
+      #canvas {
+        width: 54%;
+        height: 36%;
+        position: absolute;
+        top: 27%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #gameboy {
+        width: 91%;
+        height: auto;
+      }
+
+      .game {
+        height: 100vh;
+      }
+
+      body {
+        overflow-y: hidden;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #canvas {
+        width: 53%;
+        height: 26%;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .game {
+        height: 100vh;
+      }
+
+      body {
+        overflow-y: hidden;
+      }
+    }
+
+    @media (max-width: 425px) {
+      #canvas {
+        width: 68%;
+        height: 27%;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #gameboy {
+        width: 102%;
+        height: auto;
+      }
+
+      .game {
+        height: 100vh;
+      }
+
+      body {
+        overflow-y: hidden;
+      }
+    }
+
+    @media (max-width: 375px) {
+      #canvas {
+        width: 68%;
+        height: 27%;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #gameboy {
+        width: 117%;
+        height: auto;
+      }
+
+      .game {
+        height: 100vh;
+      }
+
+      body {
+        overflow-y: hidden;
       }
     }
   </style>
@@ -113,7 +198,7 @@
     <h1></h1>
   </header>
   <div class="game">
-    <img id="gameboy" src="img/gameboy.png" alt="Gameboy">
+    <img id="gameboy" src="img/gbPoket.png" alt="Gameboy">
     <canvas id="canvas" width="960" height="768"></canvas>
   </div>
   <div class="gameover center">
@@ -162,6 +247,21 @@
     function togglePause() {
       gameManager.togglePause();
     }
+
+    // Función para cambiar la imagen según el tamaño de la pantalla
+    function cambiarImagen() {
+      const gameboy = document.getElementById('gameboy');
+      //si el tamaño de pantalla es de menos o igual de 768px o 425px, cambia la imagen
+      if (window.innerWidth <= 768 || window.innerWidth <= 425) {
+        gameboy.src = 'img/gbPoket.png';
+      } else {
+        gameboy.src = 'img/gameboy.png';
+      }
+    }
+
+    // Cambiar la imagen al cargar la página y al redimensionar la ventana
+    window.addEventListener('load', cambiarImagen);
+    window.addEventListener('resize', cambiarImagen);
   </script>
 </body>
 
