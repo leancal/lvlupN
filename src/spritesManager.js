@@ -73,6 +73,67 @@ export class SpritesManager {
     this.drawLevel(map, map.topLayer);
   }
 
+  drawIdleMessage(message, playerPos) {
+    const padding = 10;
+    const maxWidth = 200; // Ancho máximo del globo, ajusta según sea necesario
+    const lineHeight = 20; // Altura de línea aproximada
+
+    // Dividir el mensaje en líneas basadas en el ancho máximo
+    let words = message.split(' ');
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        let word = words[i];
+        let width = this.ctx.measureText(currentLine + ' ' + word).width;
+        if (width < maxWidth) {
+            currentLine += ' ' + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+
+    const bubbleWidth = maxWidth + padding * 2;
+    const bubbleHeight = lines.length * lineHeight + padding * 2;
+    const cornerRadius = 10; // Radio de las esquinas redondeadas
+
+    this.ctx.fillStyle = "white";
+    this.ctx.strokeStyle = "black";
+    this.ctx.lineWidth = 2;
+
+    // Calcula la posición inicial del globo para que la esquina inferior izquierda esté sobre el personaje
+    const startX = playerPos.x  - bubbleWidth / 2;
+    const startY = playerPos.y - 40 - bubbleHeight; // Mueve el globo hacia arriba
+
+    // Dibuja el globo de diálogo con bordes redondeados
+    this.ctx.beginPath();
+    this.ctx.moveTo(startX + cornerRadius, startY); // Punta del globo
+    this.ctx.lineTo(startX + bubbleWidth - cornerRadius, startY); // Línea horizontal hacia la derecha
+    this.ctx.arcTo(startX + bubbleWidth, startY, startX + bubbleWidth, startY + cornerRadius, cornerRadius); // Esquina superior derecha
+    this.ctx.lineTo(startX + bubbleWidth, startY + bubbleHeight - cornerRadius); // Línea vertical hacia abajo
+    this.ctx.arcTo(startX + bubbleWidth, startY + bubbleHeight, startX + bubbleWidth - cornerRadius, startY + bubbleHeight, cornerRadius); // Esquina inferior derecha
+    this.ctx.lineTo(startX + cornerRadius, startY + bubbleHeight); // Línea horizontal hacia la izquierda
+    this.ctx.arcTo(startX, startY + bubbleHeight, startX, startY + bubbleHeight - cornerRadius, cornerRadius); // Esquina inferior izquierda
+    this.ctx.lineTo(startX, startY + cornerRadius); // Línea vertical hacia arriba
+    this.ctx.arcTo(startX, startY, startX + cornerRadius, startY, cornerRadius); // Esquina superior izquierda
+    this.ctx.closePath(); // Cierra el camino del globo
+    this.ctx.fill(); // Rellena el globo
+    this.ctx.stroke(); // Dibuja el borde del globo
+
+    // Dibuja el texto con la tipografía 'Press Start 2P'
+    this.ctx.font = "16px 'Press Start 2P', cursive";
+    this.ctx.fillStyle = "black";
+    this.ctx.textAlign = "center";
+
+    // Dibuja cada línea del mensaje
+    for (let i = 0; i < lines.length; i++) {
+        this.ctx.fillText(lines[i], playerPos.x, startY + padding + lineHeight + i * lineHeight); // Coloca el texto dentro del globo
+    }
+}
+
+
   drawLevel(map, layer) {
     for (let i = 0; i < layer.data.length; i++) {
       if (layer.data[i] !== 0) {

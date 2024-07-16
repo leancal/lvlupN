@@ -130,20 +130,30 @@ export class Bullet extends Unit {
 }
 
 export class Player extends Unit {
+  constructor(pos, vel, width = 0, height = 0, sprite = null) {
+    super(pos, vel, width, height, sprite);
+    this.idleTime = 0;
+    this.isIdle = false;
+  }
+
   moveLeft() {
     this.vel = new Vec(-6, this.vel.y);
+    this.resetIdle();
   }
 
   moveRight() {
     this.vel = new Vec(6, this.vel.y);
+    this.resetIdle();
   }
 
   moveUp() {
     this.vel = new Vec(this.vel.x, -6);
+    this.resetIdle();
   }
 
   moveDown() {
     this.vel = new Vec(this.vel.x, 6);
+    this.resetIdle();
   }
 
   stopX() {
@@ -154,20 +164,31 @@ export class Player extends Unit {
     this.vel = new Vec(this.vel.x, 0);
   }
 
+  resetIdle() {
+    this.idleTime = 0;
+    this.isIdle = false;
+  }
+
+  updateIdle(deltaTime) {
+    this.idleTime += deltaTime;
+    if (this.idleTime >= 5000) { 
+      this.isIdle = true;
+    }
+  }
+
   shoot(bullets, destObjPos) {
     let startPos = this.pos.plus(new Vec(this.width / 2 - Bullet.SIZE / 2, this.height / 2 - Bullet.SIZE / 2));
     let endPos = destObjPos.plus(new Vec(Bullet.SIZE / 2, Bullet.SIZE / 2).multiply(-1));
 
     const angle = Math.atan2(endPos.y - startPos.y, endPos.x - startPos.x);
 
-    const b = Bullet.createBullet(
-      startPos,
-      angle,
-      'yellow',
-      true);
+    const b = Bullet.createBullet(startPos, angle, 'yellow', true);
     bullets.push(b);
+    this.resetIdle();
   }
 }
+
+
 
 export class Enemy extends Unit {
   constructor(pos, vel, width = 0, height = 0, sprite = null) {

@@ -22,10 +22,13 @@ export class GameManager {
     this.score = 0;
     this.enemiesCount = 0;
 
-    this.paused = false; // Estado inicial: no pausado
+    this.paused = false; 
+    this.idleMessage = " Debo llegar a las puertas de la iglesia. RAPIDO!!! ";
+
+    this.idleTextVisible = false;
   }
 
-  update() {
+  update(deltaTime) {
     if (this.paused) {
       return; // Si está pausado, no actualizamos el juego
     }
@@ -93,6 +96,15 @@ export class GameManager {
     this.render.drawMapBottom(this.map);
     this.render.draw(this.actors);
     this.render.drawMapTop(this.map);
+
+    this.player.updateIdle(deltaTime);
+
+    if (this.player.isIdle) {
+      this.idleTextVisible = true;
+      this.render.drawIdleMessage(this.idleMessage, this.player.pos);
+    } else {
+      this.idleTextVisible = false;
+    }
   }
 
   togglePause() {
@@ -100,9 +112,10 @@ export class GameManager {
     if (this.paused) {
       clearInterval(this.gameLoop);
     } else {
-      this.gameLoop = setInterval(() => this.update(), 35);
+      this.gameLoop = setInterval(() => this.update(35), 35);
     }
   }
+
   run() {
     this.player = null;
     this.actors = [];
@@ -115,7 +128,9 @@ export class GameManager {
     this.render.init().then(() => {
       this.player = this.actors[0];
       this.enemiesCount = this.actors.filter(o => o instanceof Enemy).length;
-      this.gameLoop = setInterval(() => this.update(), 35);
+      this.gameLoop = setInterval(() => this.update(35), 35);
     });
   }
 }
+
+
