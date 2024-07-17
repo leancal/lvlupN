@@ -481,7 +481,7 @@
         left: 19.7%;
         top: 53%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
+      }
 
       #canvas {
         width: 77%;
@@ -490,12 +490,12 @@
         top: 32%;
         left: 51%;
         transform: translate(-50%, -50%);
-    }
+      }
 
-    #gameboy {
+      #gameboy {
         width: 88%;
         height: auto;
-    }
+      }
 
       .game {
         height: 100vh;
@@ -679,6 +679,16 @@
     // Cambiar la imagen al cargar la página y al redimensionar la ventana
     window.addEventListener('load', cambiarImagen);
     window.addEventListener('resize', cambiarImagen);
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const controlButtons = document.querySelectorAll('.controler button');
+
+      controlButtons.forEach(button => {
+        button.addEventListener('contextmenu', function (event) {
+          event.preventDefault();
+        });
+      });
+    });
   </script>
 
 </body>
