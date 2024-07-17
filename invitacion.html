@@ -6,73 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="invitacion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        body {
-            scroll-behavior: smooth;
-            background-image: url('img/bg.gif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
 
-        .game {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100%;
-        }
-
-        #gameboy {
-            position: absolute;
-            width: 87%;
-            height: auto;
-        }
-
-        @media (max-width: 1024px) {
-            #gameboy {
-                width: 167%;
-                height: auto;
-            }
-        }
-
-        header {
-            z-index: 1;
-        }
-
-        h1 {
-            color: rgb(0, 0, 0);
-            font-family: 'Press Start 2P', cursive;
-            margin: 0 0 20px;
-        }
-
-        main button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        main button:hover {
-            background-color: #45a049;
-        }
-
-        .gameContent {
-            z-index: 1;
-        }
-    </style>
 </head>
 
 <body>
@@ -82,12 +20,13 @@
             <header>
                 <h1>¿Vas a la fiesta?</h1>
             </header>
-            <main>
-                <button onclick="irAFormulario()">¡Sí, voy!</button>
-                <button onclick="noVoy()">No puedo ir</button>
-                <button onclick="volver()">Volver</button>
-            </main>
+
         </div>
+        <main>
+            <button onclick="irAFormulario()">¡Sí, voy!</button>
+            <button onclick="noVoy()">No puedo ir</button>
+            <button onclick="volver()">Volver</button>
+        </main>
     </div>
     <script>
         function irAFormulario() {
@@ -95,7 +34,7 @@
         }
 
         function noVoy() {
-            alert('¡HIJO DE PUTA!.');
+            alert('¡QUE LASTIMA, VOS TE LO PERDES!.');
         }
 
         function volver() {

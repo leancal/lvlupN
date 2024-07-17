@@ -2,19 +2,23 @@
   font-family: 'Press Start 2P', cursive;
 }
 
-.center {
+
+.centers {
+  display: flex;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(1875%, -891%);
+  flex-direction: column;
 }
 
 .gameover {
-  display: none;
+  /* position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
   place-items: center;
   border-radius: 20px;
-  width: 10%;
-  height: 5%;
+  /* width: 10%; */
+  /* height: 5%; */
 }
 
 .restart-button {

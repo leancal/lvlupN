@@ -1,63 +1,1174 @@
-@import url('https://fonts.cdnfonts.com/css/inter');
+/* Estilos CSS existentes */
 body {
- font-family: Inter, sans-serif;
- font-size: 24px;
- color: lightpink;
- padding-top: 120px; /* increase padding to the top of the body */
-}
-.navbar {
- background-color: black;
- overflow: hidden;
- position: fixed;
- top: 0;
- left: 0;
- right: 0;
- width: 100%;
- padding: 15px 0; /* increase padding */
- transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    scroll-behavior: smooth;
+    background-image: url('../img/bg.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.navbar a {
- float: left;
- display: block;
- color: hotpink;
- text-align: center;
- padding: 14px 24px; /* increase padding */
- text-decoration: none;
- border-radius: 17px; /* add border radius */
- transition: background-color 0.3s ease-in-out;
-}
-
-.navbar a:hover {
- background-color: #ddd;
- color: black;
-}
-
-.content {
- padding: 120px 0; /* increase padding */
- text-align: center;
-}
-
-/* Webkit (Chrome, Safari, etc) */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ff69b4;
+.restartButton {
+    background-color: #8eff1c;
+    font-size: 9px;
+    height: 18px;
+    width: 77px;
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #ff1493;
+.saltarButton {
+    background-color: #8eff1c;
+    font-size: 9px;
+    height: 18px;
+    width: 77px;
+    border-radius: 10px;
 }
 
-/* Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: #ff69b4 #f9f9f9;
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#gameboy {
+    width: 82%;
+    height: auto;
+}
+
+#canvas {
+    z-index: 1111;
+    width: 33%;
+    height: 45%;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.center {
+    text-align: center;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.joystick {
+    width: 573px;
+    height: 261px;
+    transform-origin: center;
+}
+
+:root {
+    /* Colors  */
+    --green: #b5e27c;
+    --blue: #6ac3d5;
+    --light-green: #95dd62;
+    --grey: #dbd1c7;
+    --pink: #d9bccd;
+    --yellow: #dfd379;
+    --red: #d2636e;
+    --brown: #9b7188;
+    --dark: #53243d;
+    --rgbap: rgba(0, 0, 0, 0.2);
+    --rgbab: rgba(255, 255, 255, 0.5);
+
+    --stroke: 6px solid #53243d;
+    --radius: 50%;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+
+
+.body-control {
+    background-color: var(--grey);
+    border-top: var(--stroke);
+    z-index: 9;
+    position: absolute;
+    width: 315px;
+    height: 233px;
+    transform: translatex(-50%);
+    left: 50%;
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 71% 100%, 29% 100%);
+    text-align: center;
+
+    box-shadow: inset 0px -6px var(--rgbap);
+}
+
+.stroke-base {
+    position: absolute;
+    background-color: var(--dark);
+    top: 238px;
+    z-index: -1;
+    width: 315px;
+    height: 7px;
+    transform: translatex(-50%);
+    left: 50%;
+}
+
+.controler {
+    position: fixed;
+}
+
+.left-hand .controler {
+    width: 163px;
+    height: 163px;
+    left: 13.7%;
+    top: 64%;
+    animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+}
+
+.left-hand .controler button {
+    border: var(--stroke);
+    background-color: var(--brown);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    z-index: 9;
+}
+
+.left-hand .controler button:after {
+    content: "◂";
+    font-size: 30px;
+    font-family: sans-serif;
+    color: var(--dark);
+    position: absolute;
+    line-height: 0;
+}
+
+.left-hand .controler button.left:after {
+    left: 5px;
+    top: 8px;
+}
+
+.left-hand .controler button.right:after {
+    right: 5px;
+    top: 12px;
+    transform: rotate(180deg);
+}
+
+.left-hand .controler button.top:after {
+    left: 6px;
+    top: 12px;
+    transform: rotate(90deg);
+}
+
+.left-hand .controler button.bottom:after {
+    right: 4px;
+    bottom: 12px;
+    transform: rotate(-90deg);
+}
+
+.left-hand .controler button.left {
+    border-right: none !important;
+    box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+    top: 50%;
+    margin-top: -16px;
+    left: 38px;
+}
+
+.left-hand .controler button.top {
+    border-bottom: none !important;
+    box-shadow: inset 0 4px var(--rgbab);
+    left: 50%;
+    margin-left: -16px;
+    top: 38px;
+}
+
+.left-hand .controler button.right {
+    border-left: none !important;
+    box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+    top: 50%;
+    margin-top: -16px;
+    right: 38px;
+}
+
+.left-hand .controler button.bottom {
+    border-top: none !important;
+    box-shadow: inset 0 -4px var(--rgbap);
+    left: 50%;
+    margin-left: -16px;
+    bottom: 38px;
+}
+
+.left-hand .controler:after,
+.left-hand .controler:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: var(--brown);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -15px;
+    z-index: 1;
+}
+
+.left-hand .controler:before {
+    border-radius: var(--radius);
+    border: 3px solid var(--dark);
+    z-index: 99;
+    box-sizing: border-box;
+    box-shadow: inset 4px 0 var(--rgbab);
+    transform: scale(0.8);
+}
+
+
+/* ANIMATIONS */
+@keyframes fio {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: -50%;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes starts {
+    0% {
+        top: 60%;
+        opacity: 0;
+    }
+
+    100% {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes scale-bg {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(4);
+    }
+}
+
+@keyframes scale-reverse {
+    0% {
+        transform: scale(4);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+.left-hand .controler {
+    display: none;
+    width: 163px;
+    height: 163px;
+    left: 13.7%;
+    top: 64%;
+    animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+}
+
+@media (max-width: 1281px) {
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(1264%, -891%);
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1260px) {
+    #canvas {
+        width: 33%;
+        height: 39%;
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 1024px) {
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: -14.3%;
+        top: 0%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 37%;
+        height: 36%;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 884px) {
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(675%, -1096%);
+        flex-direction: column;
+    }
+
+    .restartButton {
+        background-color: #bbbbbb;
+        font-size: 11px;
+        height: 22px;
+        width: 98px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #bbbbbb;
+        font-size: 11px;
+        height: 22px;
+        width: 98px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+        content: "";
+        width: 45px;
+        height: 45px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 42%;
+        left: 51%;
+        /* margin: -15px; */
+
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 14.7%;
+        top: 60%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 42px;
+        height: 47px;
+        margin-top: -18px;
+        left: 41px;
+    }
+
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -35px;
+        top: 22px;
+        width: 49px;
+        height: 43px;
+    }
+
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 41%;
+        margin-top: -16px;
+        right: 17px;
+        height: 47px;
+        width: 47px;
+    }
+
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 43px;
+        width: 47px;
+        margin-left: -2px;
+        bottom: 37px;
+    }
+
+    #gameboy {
+        width: 100%;
+        height: auto;
+    }
+
+    #canvas {
+        width: 47%;
+        height: 37%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 186px;
+        height: 187px;
+        left: -19.3%;
+        top: -1%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media (max-width: 834px) {
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(675%, -1096%);
+        flex-direction: column;
+    }
+
+    .restartButton {
+        background-color: #bbbbbb;
+        font-size: 11px;
+        height: 22px;
+        width: 98px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #bbbbbb;
+        font-size: 11px;
+        height: 22px;
+        width: 98px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+        content: "";
+        width: 45px;
+        height: 45px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 42%;
+        left: 51%;
+        /* margin: -15px; */
+
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 14.7%;
+        top: 60%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 42px;
+        height: 47px;
+        margin-top: -18px;
+        left: 41px;
+    }
+
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -35px;
+        top: 22px;
+        width: 49px;
+        height: 43px;
+    }
+
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 41%;
+        margin-top: -16px;
+        right: 17px;
+        height: 47px;
+        width: 47px;
+    }
+
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 43px;
+        width: 47px;
+        margin-left: -2px;
+        bottom: 37px;
+    }
+
+    #gameboy {
+        width: 100%;
+        height: auto;
+    }
+
+    #canvas {
+        width: 49%;
+        height: 33%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 186px;
+        height: 187px;
+        left: -16.3%;
+        top: -1%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(131%, -738%);
+    }
+
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+        content: "";
+        width: 50px;
+        height: 46px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 46%;
+        left: 45%;
+        margin: -15px;
+
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        zoom: 55px;
+        scale: 87px;
+        height: 163px;
+        left: 0%;
+        top: 92%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 51px;
+        height: 56px;
+        /* margin-top: -16px; */
+        left: 8px;
+    }
+
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 50%;
+        margin-left: -27px;
+        top: 7px;
+        width: 57px;
+        height: 54px;
+    }
+
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        margin-top: -16px;
+        right: 5px;
+        height: 56px;
+        width: 52px;
+    }
+
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 53px;
+        width: 58px;
+        margin-left: -16px;
+        bottom: 6px;
+    }
+
+    #canvas {
+        width: 53%;
+        height: 42%;
+        position: absolute;
+        top: 23%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 91%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 630px) {
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 13.7%;
+        top: 65%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 54%;
+        height: 36%;
+        position: absolute;
+        top: 27%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 91%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 13.7%;
+        top: 65%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 53%;
+        height: 26%;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 425px) {
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 19.7%;
+        top: 53%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 77%;
+        height: 31%;
+        position: absolute;
+        top: 32%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 88%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 429px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(78%, -816%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 71px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 71px;
+        border-radius: 10px;
+    }
+
+    #canvas {
+        width: 79%;
+        height: 36%;
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 15%;
+        top: 62%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(80%, -1173%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 17px;
+        width: 69px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 17px;
+        width: 69px;
+        border-radius: 10px;
+
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 18.7%;
+        top: 53%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 77%;
+        height: 31%;
+        position: absolute;
+        top: 34%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(78%, -816%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 72px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 72px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 17.7%;
+        top: 53%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media screen and (max-width: 393px) {
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 18px;
+        width: 63px;
+
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 18px;
+        width: 63px;
+
+        border-radius: 10px;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 154px;
+        height: 148px;
+        left: 18.7%;
+        top: 53%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media (max-width: 390px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(83%, -738%);
+    }
+}
+
+@media (max-width: 375px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(83%, -738%);
+    }
+}
+
+@media (max-width: 374px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(55%, -738%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+        content: "";
+        width: 37px;
+        height: 31px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 46%;
+        left: 53%;
+        margin: -15px;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 14.7%;
+        top: 60%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 31px;
+        height: 41px;
+        /* margin-top: -16px; */
+        left: 41px;
+    }
+
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -27px;
+        top: 22px;
+        width: 41px;
+        height: 41px;
+    }
+
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        margin-top: -16px;
+        right: 14px;
+        height: 41px;
+        width: 41px;
+    }
+
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 41px;
+        width: 41px;
+        margin-left: 0px;
+        bottom: 36px;
+    }
+
+
+    #canvas {
+        width: 68%;
+        height: 27%;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 117%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 360px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(55%, -723%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler:after,
+    .left-hand .controler:before {
+        content: "";
+        width: 37px;
+        height: 31px;
+        background-color: var(--brown);
+        position: absolute;
+        top: 46%;
+        left: 53%;
+        margin: -15px;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 162px;
+        height: 164px;
+        left: 12.7%;
+        top: 67%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 31px;
+        height: 41px;
+        /* margin-top: -16px; */
+        left: 41px;
+    }
+
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -28px;
+        top: 22px;
+        width: 40px;
+        height: 39px;
+    }
+
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        margin-top: -16px;
+        right: 16px;
+        height: 41px;
+        width: 40px;
+    }
+
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 43%;
+        height: 38px;
+        width: 41px;
+        margin-left: 0px;
+        bottom: 36px;
+    }
+
+
+    #canvas {
+        width: 76%;
+        height: 32%;
+        position: absolute;
+        top: 29%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 117%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (max-width: 320px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(55%, -400%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 14px;
+        width: 63px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 14px;
+        width: 63px;
+        border-radius: 10px;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 162px;
+        height: 164px;
+        left: 18.7%;
+        top: 55%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #gameboy {
+        width: 94%;
+        height: auto;
+    }
+
+    #canvas {
+        width: 83%;
+        height: 46%;
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 }

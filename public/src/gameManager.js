@@ -71,13 +71,13 @@ export class GameManager {
 
     this.physics.update(this.actors);
 
-    if (this.player.destroy) {
-      this.sound.play("fail");
-      this.player = null;
-      clearInterval(this.gameLoop);
-      this.callbacks.gameOver(this.score);
-      return;
-    }
+    // if (this.player.destroy) {
+    //   this.sound.play("fail");
+    //   this.player = null;
+    //   clearInterval(this.gameLoop);
+    //   this.callbacks.gameOver(this.score);
+    //   return;
+    // }
 
     for (let index in this.actors) {
       if (this.actors[index].destroy) {
