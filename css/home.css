@@ -446,123 +446,14 @@ button:active {
     }
 }
 
-@media (max-width: 834px) {
-    .centers {
-        display: flex;
-        position: absolute;
-        transform: translate(675%, -1096%);
-        flex-direction: column;
-    }
-
-    .restartButton {
-        background-color: #bbbbbb;
-        font-size: 11px;
-        height: 22px;
-        width: 98px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #bbbbbb;
-        font-size: 11px;
-        height: 22px;
-        width: 98px;
-        border-radius: 10px;
-    }
-
-    .left-hand .controler:after,
-    .left-hand .controler:before {
-        content: "";
-        width: 45px;
-        height: 45px;
-        background-color: var(--brown);
-        position: absolute;
-        top: 42%;
-        left: 51%;
-        /* margin: -15px; */
-
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 14.7%;
-        top: 60%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-
-    .left-hand .controler button.left {
-        border-right: none !important;
-        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
-        top: 43%;
-        width: 42px;
-        height: 47px;
-        margin-top: -18px;
-        left: 41px;
-    }
-
-    .left-hand .controler button.top {
-        border-bottom: none !important;
-        box-shadow: inset 0 4px var(--rgbab);
-        left: 61%;
-        margin-left: -35px;
-        top: 22px;
-        width: 49px;
-        height: 43px;
-    }
-
-    .left-hand .controler button.right {
-        border-left: none !important;
-        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
-        top: 41%;
-        margin-top: -16px;
-        right: 17px;
-        height: 47px;
-        width: 47px;
-    }
-
-    .left-hand .controler button.bottom {
-        border-top: none !important;
-        box-shadow: inset 0 -4px var(--rgbap);
-        left: 43%;
-        height: 43px;
-        width: 47px;
-        margin-left: -2px;
-        bottom: 37px;
-    }
-
-    #gameboy {
-        width: 100%;
-        height: auto;
-    }
-
-    #canvas {
-        width: 49%;
-        height: 33%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 186px;
-        height: 187px;
-        left: -16.3%;
-        top: -1%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-}
-
-@media (max-width: 768px) {
-
+@media (min-width: 701px) and (max-width: 768px) {
+   
     .centers {
         display: block;
         position: absolute;
-        transform: translate(131%, -738%);
+        transform: translate(105%, -386%);
     }
+
 
 
     .left-hand .controler:after,
@@ -584,8 +475,8 @@ button:active {
         zoom: 55px;
         scale: 87px;
         height: 163px;
-        left: 0%;
-        top: 92%;
+        left: 8%;
+        top: 80%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
 
@@ -595,7 +486,6 @@ button:active {
         top: 43%;
         width: 51px;
         height: 56px;
-        /* margin-top: -16px; */
         left: 8px;
     }
 
@@ -630,16 +520,17 @@ button:active {
     }
 
     #canvas {
-        width: 53%;
-        height: 42%;
+        width: 63%;
+        height: 46%;
         position: absolute;
-        top: 23%;
+        top: 29%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
+
     #gameboy {
-        width: 91%;
+        width: 70%;
         height: auto;
     }
 
@@ -652,304 +543,36 @@ button:active {
     }
 }
 
-@media (max-width: 630px) {
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 13.7%;
-        top: 65%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
+@media (min-width: 601px) and (max-width: 700px) {
 
-    #canvas {
-        width: 54%;
-        height: 36%;
-        position: absolute;
-        top: 27%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #gameboy {
-        width: 91%;
-        height: auto;
-    }
-
-    .game {
-        height: 100vh;
-    }
-
-    body {
-        overflow-y: hidden;
-    }
-}
-
-@media (max-width: 480px) {
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 13.7%;
-        top: 65%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-
-    #canvas {
-        width: 53%;
-        height: 26%;
-        position: absolute;
-        top: 33%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .game {
-        height: 100vh;
-    }
-
-    body {
-        overflow-y: hidden;
-    }
-}
-
-@media (max-width: 425px) {
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 19.7%;
-        top: 53%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-
-    #canvas {
-        width: 77%;
-        height: 31%;
-        position: absolute;
-        top: 32%;
-        left: 51%;
-        transform: translate(-50%, -50%);
-    }
-
-    #gameboy {
-        width: 88%;
-        height: auto;
-    }
-
-    .game {
-        height: 100vh;
-    }
-
-    body {
-        overflow-y: hidden;
-    }
-}
-
-@media (max-width: 429px) {
     .centers {
         display: block;
         position: absolute;
-        transform: translate(78%, -816%);
+        transform: translate(88%, -642%);
     }
 
-    .restartButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 15px;
-        width: 71px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 15px;
-        width: 71px;
-        border-radius: 10px;
-    }
-
-    #canvas {
-        width: 79%;
-        height: 36%;
-        position: absolute;
-        top: 32%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 15%;
-        top: 62%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-}
-
-@media screen and (max-width: 412px) {
-    .centers {
-        display: block;
-        position: absolute;
-        transform: translate(80%, -1173%);
-    }
-
-    .restartButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 17px;
-        width: 69px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 17px;
-        width: 69px;
-        border-radius: 10px;
-
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 18.7%;
-        top: 53%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-
-    #canvas {
-        width: 77%;
-        height: 31%;
-        position: absolute;
-        top: 34%;
-        left: 51%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-@media screen and (max-width: 414px) {
-    .centers {
-        display: block;
-        position: absolute;
-        transform: translate(78%, -816%);
-    }
-
-    .restartButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 15px;
-        width: 72px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 15px;
-        width: 72px;
-        border-radius: 10px;
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 163px;
-        height: 163px;
-        left: 17.7%;
-        top: 53%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-}
-
-@media screen and (max-width: 393px) {
-    .restartButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 18px;
-        width: 63px;
-
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 18px;
-        width: 63px;
-
-        border-radius: 10px;
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 154px;
-        height: 148px;
-        left: 18.7%;
-        top: 53%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-}
-
-@media (max-width: 390px) {
-    .centers {
-        display: block;
-        position: absolute;
-        transform: translate(83%, -738%);
-    }
-}
-
-@media (max-width: 375px) {
-    .centers {
-        display: block;
-        position: absolute;
-        transform: translate(83%, -738%);
-    }
-}
-
-@media (max-width: 374px) {
-    .centers {
-        display: block;
-        position: absolute;
-        transform: translate(55%, -738%);
-    }
-
-    .restartButton {
-        background-color: #797979;
-        font-size: 9px;
-        height: 18px;
-        width: 77px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 9px;
-        height: 18px;
-        width: 77px;
-        border-radius: 10px;
-    }
 
     .left-hand .controler:after,
     .left-hand .controler:before {
         content: "";
-        width: 37px;
-        height: 31px;
+        width: 50px;
+        height: 46px;
         background-color: var(--brown);
         position: absolute;
         top: 46%;
-        left: 53%;
+        left: 45%;
         margin: -15px;
+
     }
 
     .left-hand .controler {
         display: block;
         width: 163px;
+        zoom: 55px;
+        scale: 87px;
         height: 163px;
-        left: 14.7%;
-        top: 60%;
+        left: 16%;
+        top: 80%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
 
@@ -957,20 +580,19 @@ button:active {
         border-right: none !important;
         box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
         top: 43%;
-        width: 31px;
-        height: 41px;
-        /* margin-top: -16px; */
-        left: 41px;
+        width: 51px;
+        height: 56px;
+        left: 8px;
     }
 
     .left-hand .controler button.top {
         border-bottom: none !important;
         box-shadow: inset 0 4px var(--rgbab);
-        left: 61%;
+        left: 50%;
         margin-left: -27px;
-        top: 22px;
-        width: 41px;
-        height: 41px;
+        top: 7px;
+        width: 57px;
+        height: 54px;
     }
 
     .left-hand .controler button.right {
@@ -978,33 +600,33 @@ button:active {
         box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
         top: 43%;
         margin-top: -16px;
-        right: 14px;
-        height: 41px;
-        width: 41px;
+        right: 5px;
+        height: 56px;
+        width: 52px;
     }
 
     .left-hand .controler button.bottom {
         border-top: none !important;
         box-shadow: inset 0 -4px var(--rgbap);
         left: 43%;
-        height: 41px;
-        width: 41px;
-        margin-left: 0px;
-        bottom: 36px;
+        height: 53px;
+        width: 58px;
+        margin-left: -16px;
+        bottom: 6px;
     }
 
-
     #canvas {
-        width: 68%;
-        height: 27%;
+        width: 59%;
+        height: 38%;
         position: absolute;
-        top: 33%;
+        top: 34%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
+
     #gameboy {
-        width: 117%;
+        width: 64%;
         height: auto;
     }
 
@@ -1017,11 +639,169 @@ button:active {
     }
 }
 
-@media (max-width: 360px) {
+@media (min-width: 501px) and (max-width: 600px) {
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 9.7%;
+        top: 74%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
     .centers {
         display: block;
         position: absolute;
-        transform: translate(55%, -723%);
+        transform: translate(65%, -466%);
+        -webkit-transform: translate(65%, -466%);
+        -moz-transform: translate(65%, -466%);
+        -ms-transform: translate(65%, -466%);
+        -o-transform: translate(65%, -466%);
+}
+
+    #canvas {
+        width: 86%;
+        height: 42%;
+        position: absolute;
+        top: 28%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 94%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+ @media (min-width: 425px) and (max-width: 500px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(47%, -917%);
+    }
+    .left-hand .controler {
+        display: block;
+        width: 188px;
+        height: 188px;
+        left: 10.7%;
+        top: 63%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+    .left-hand .controler button.left {
+        border-right: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 43%;
+        width: 44px;
+        height: 49px;
+        margin-top: -18px;
+        left: 39px;
+    }
+    .left-hand .controler button.right {
+        border-left: none !important;
+        box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
+        top: 41%;
+        margin-top: -16px;
+        right: 17px;
+        height: 50px;
+        width: 47px;
+    }
+    .left-hand .controler button.top {
+        border-bottom: none !important;
+        box-shadow: inset 0 4px var(--rgbab);
+        left: 61%;
+        margin-left: -35px;
+        top: 22px;
+        width: 50px;
+        height: 43px;
+    }
+    .left-hand .controler button.bottom {
+        border-top: none !important;
+        box-shadow: inset 0 -4px var(--rgbap);
+        left: 42%;
+        height: 46px;
+        width: 50px;
+        margin-left: -2px;
+        bottom: 37px;
+    }
+    #canvas {
+        width: 84%;
+        height: 36%;
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gameboy {
+        width: 96%;
+        height: auto;
+    }
+
+    .game {
+        height: 100vh;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 424px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(69%, -1016%);
+    }
+
+    .restartButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 71px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 7px;
+        height: 15px;
+        width: 71px;
+        border-radius: 10px;
+    }
+
+    #canvas {
+        width: 80%;
+        height: 31%;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 163px;
+        height: 163px;
+        left: 21%;
+        top: 66%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+}
+
+@media (min-width: 320px) and (max-width: 374px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(12%, -1162%);
     }
 
     .restartButton {
@@ -1056,8 +836,8 @@ button:active {
         display: block;
         width: 162px;
         height: 164px;
-        left: 12.7%;
-        top: 67%;
+        left: 16.7%;
+        top: 59%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
 
@@ -1067,7 +847,6 @@ button:active {
         top: 43%;
         width: 31px;
         height: 41px;
-        /* margin-top: -16px; */
         left: 41px;
     }
 
@@ -1101,18 +880,17 @@ button:active {
         bottom: 36px;
     }
 
-
     #canvas {
-        width: 76%;
-        height: 32%;
+        width: 84%;
+        height: 29%;
         position: absolute;
-        top: 29%;
+        top: 37%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     #gameboy {
-        width: 117%;
+        width: 96%;
         height: auto;
     }
 
@@ -1125,50 +903,54 @@ button:active {
     }
 }
 
-@media screen and (max-width: 320px) {
-    .centers {
-        display: block;
+@media (min-width: 300px) and (max-width: 319px) {
+    .left-hand .controler button.top {
+       
+        height: 41px;
+    }
+    .left-hand .controler button.bottom {
+        height: 38px;
+    }
+
+    .left-hand .controler button.right {
+        width: 42px;
+    }
+
+    .left-hand .controler button.left {
+        width: 43px;
+    }
+    .left-hand .controler:after, .left-hand .controler:before {
+        content: "";
+        width: 52px;
+        height: 52px;
+        background-color: var(--brown);
         position: absolute;
-        transform: translate(55%, -1370%);
-    }
-
-    .restartButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 14px;
-        width: 63px;
-        border-radius: 10px;
-    }
-
-    .saltarButton {
-        background-color: #797979;
-        font-size: 7px;
-        height: 14px;
-        width: 63px;
-        border-radius: 10px;
-    }
-
-    .left-hand .controler {
-        display: block;
-        width: 162px;
-        height: 164px;
-        left: 18.7%;
-        top: 55%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-
-    #gameboy {
-        width: 94%;
-        height: auto;
+        top: 44%;
+        left: 44%;
+        margin: -15px;
     }
 
     #canvas {
-        width: 81%;
-        height: 27%;
+        width: 76%;
+        height: 22%;
         position: absolute;
-        top: 37%;
+        top: 39%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
+    .left-hand .controler {
+        display: block;
+        width: 143px;
+        height: 140px;
+        left: 26.7%;
+        top: 52%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(19%, -1183%);
+    }
 }
