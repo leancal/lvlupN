@@ -9,6 +9,10 @@
   transform: translate(1875%, -891%);
   flex-direction: column;
 } */
+#gameboy {
+  width: 48%;
+  height: auto;
+}
 
 .gameover {
   /* position: absolute;

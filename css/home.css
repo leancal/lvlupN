@@ -947,6 +947,10 @@ button:active {
 }
 
 @media (min-width: 375px) and (max-width: 424px) {
+    #gameboy {
+        width: 97%;
+        height: auto;
+    }
     .keys {
         display: none;
     }
@@ -1160,7 +1164,7 @@ button:active {
     }
 }
 
-@media (min-width: 300px) and (max-width: 319px) {
+@media (min-width: 200px) and (max-width: 319px) {
     .keys {
         display: none;
     }
