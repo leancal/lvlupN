@@ -1220,10 +1220,10 @@ button:active {
     }
 
     #canvas {
-        width: 88%;
-        height: 26%;
+        width: 63%;
+        height: 19%;
         position: absolute;
-        top: 36%;
+        top: 41%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -1240,6 +1240,6 @@ button:active {
     .centers {
         display: block;
         position: absolute;
-        transform: translate(19%, -1183%);
+        transform: translate(32%, -1359%);
     }
 }
