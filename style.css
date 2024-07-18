@@ -3,12 +3,12 @@
 }
 
 
-.centers {
+/* .centers {
   display: flex;
   position: absolute;
   transform: translate(1875%, -891%);
   flex-direction: column;
-}
+} */
 
 .gameover {
   /* position: absolute;
