@@ -1125,11 +1125,11 @@ button:active {
     }
 }
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
     .centers {
         display: block;
         position: absolute;
-        transform: translate(55%, -400%);
+        transform: translate(55%, -1370%);
     }
 
     .restartButton {
@@ -1163,10 +1163,10 @@ button:active {
     }
 
     #canvas {
-        width: 83%;
-        height: 46%;
+        width: 81%;
+        height: 27%;
         position: absolute;
-        top: 26%;
+        top: 37%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
