@@ -1241,7 +1241,10 @@ button:active {
         top: 52%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
-
+    #gameboy {
+        width: 72%;
+        height: auto;
+    }
     .centers {
         display: block;
         position: absolute;
