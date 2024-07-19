@@ -12,52 +12,52 @@ body {
 
 span {
     border: 1px solid #cccccc;
-	font-family: sans-serif;
-	font-size: 18px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	padding-bottom: 3px;
-	width: 48px;
-	height: 45px;
-	border-radius: 5px;
-	background-color: #fff;
-	color: #444;
-	border-top: 1px solid ;
-	box-shadow: 0px 3px 0px 2px ;
+    font-family: sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 3px;
+    width: 48px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #444;
+    border-top: 1px solid;
+    box-shadow: 0px 3px 0px 2px;
 }
 
 .keys {
-    top: 70%;
-	position: absolute;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	place-items: center;
-	grid-gap: 1px;
+    top: 75%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+    grid-gap: 1px;
 }
 
 
 
-.keys > span:nth-child(1) {
-	grid-column: 2;
-	grid-row: 1;
+.keys>span:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
 }
 
-.keys > span:nth-child(2) {
-	grid-column: 1;
-	grid-row: 2;
+.keys>span:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
 }
 
-.keys > span:nth-child(3) {
-	grid-column: 2;
-	grid-row: 2;
+.keys>span:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
 }
 
-.keys > span:nth-child(4) {
-	grid-column: 3;
-	grid-row: 2;
+.keys>span:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
 }
 
 .restartButton {
@@ -86,18 +86,18 @@ span {
 }
 
 #gameboy {
-    width: 48%;
+    width: 77%;
     height: auto;
 }
 
 #canvas {
     z-index: 1111;
-    width: 28%;
-    height: 35%;
+    width: 41%;
+    height: 48%;
     border: 2px solid black;
     border-radius: 10px;
     position: absolute;
-    top: 28%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -353,131 +353,195 @@ button:active {
 
 @media (max-width: 1281px) {
     .centers {
-        display: block;
+        display: flex;
         position: absolute;
-        transform: translate(307%, -891%);
+        transform: translate(148%, -891%);
         flex-direction: column;
     }
 
-   
+
 }
 
 @media (max-width: 1260px) {
     #canvas {
-        width: 46%;
-        height: 41%;
+        width: 45%;
+        height: 39%;
         position: absolute;
-        top: 26%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-@media (min-width: 1001px) and (max-width: 1100px) {
-    .keys {
-        display: none;
-    }
-    .centers {
-        display: flex;
-        position: absolute;
-        transform: translate(1030%, -491%);
-        flex-direction: column;
-    }
-    .left-hand .controler {
-        display: block;
-        width: 165px;
-        height: 163px;
-        left: -21.3%;
-        top: 97%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-    #canvas {
-        width: 48%;
-        height: 34%;
-        position: absolute;
-        top: 29%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-@media (min-width: 901px) and (max-width: 1000px) {
-    .keys {
-        display: none;
-    }
-    .centers {
-        display: flex;
-        position: absolute;
-        transform: translate(930%, -601%);
-        flex-direction: column;
-    }
-    .left-hand .controler {
-        display: block;
-        width: 165px;
-        height: 163px;
-        left: -15.3%;
-        top: 88%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-    #canvas {
-        width: 46%;
-        height: 32%;
-        position: absolute;
-        top: 31%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-@media (min-width: 851px) and (max-width: 900px) {
-    .keys {
-        display: none;
-    }
-    .centers {
-        display: flex;
-        position: absolute;
-        transform: translate(850%, -601%);
-        flex-direction: column;
-    }
-    .left-hand .controler {
-        display: block;
-        width: 165px;
-        height: 163px;
-        left: -11.3%;
-        top: 72%;
-        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
-    }
-    #canvas {
-        width: 46%;
-        height: 32%;
-        position: absolute;
-        top: 31%;
-        left: 50%;
+        top: 50%;
+        left: 49%;
         transform: translate(-50%, -50%);
     }
 }
 
-@media (min-width: 769px) and (max-width: 850px) {
+@media (min-width: 1001px) and (max-width: 1100px) {
+    #gameboy {
+        width: 90%;
+        height: auto;
+    }
+
     .keys {
         display: none;
     }
+
     .centers {
         display: flex;
         position: absolute;
-        transform: translate(646%, -483%);
+        transform: translate(1094%, -945%);
+        flex-direction: column;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 165px;
+        height: 163px;
+        left: -31.3%;
+        top: 23%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 46%;
+        height: 32%;
+        position: absolute;
+        top: 50%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 951px) and (max-width: 1000px) {
+    #gameboy {
+        width: 90%;
+        height: auto;
+    }
+
+    .keys {
+        display: none;
+    }
+
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(1038%, -945%);
+        flex-direction: column;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 165px;
+        height: 163px;
+        left: -28.3%;
+        top: 23%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 46%;
+        height: 32%;
+        position: absolute;
+        top: 50%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 901px) and (max-width: 950px) {
+    #gameboy {
+        width: 90%;
+        height: auto;
+    }
+
+    .keys {
+        display: none;
+    }
+
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(972%, -945%);
+        flex-direction: column;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 165px;
+        height: 163px;
+        left: -24.3%;
+        top: 23%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 46%;
+        height: 32%;
+        position: absolute;
+        top: 50%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 841px) and (max-width: 900px) {
+    #gameboy {
+        width: 90%;
+        height: auto;
+    }
+
+    .keys {
+        display: none;
+    }
+
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(906%, -945%);
+        flex-direction: column;
+    }
+
+    .left-hand .controler {
+        display: block;
+        width: 165px;
+        height: 163px;
+        left: -20.3%;
+        top: 22%;
+        animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
+    }
+
+    #canvas {
+        width: 46%;
+        height: 32%;
+        position: absolute;
+        top: 50%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 840px) {
+    .keys {
+        display: none;
+    }
+
+    .centers {
+        display: flex;
+        position: absolute;
+        transform: translate(816%, -803%);
         flex-direction: column;
     }
 
     .restartButton {
         background-color: #bbbbbb;
-        font-size: 11px;
+        font-size: 10px;
         height: 22px;
-        width: 98px;
+        width: 82px;
         border-radius: 10px;
     }
 
     .saltarButton {
         background-color: #bbbbbb;
-        font-size: 11px;
+        font-size: 10px;
         height: 22px;
-        width: 98px;
+        width: 82px;
         border-radius: 10px;
     }
 
@@ -549,20 +613,20 @@ button:active {
     }
 
     #canvas {
-        width: 51%;
-        height: 29%;
+        width: 50%;
+        height: 32%;
         position: absolute;
-        top: 30%;
+        top: 28%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-51%, 17%);
     }
 
     .left-hand .controler {
         display: block;
-        width: 186px;
-        height: 187px;
-        left: -19.3%;
-        top: 65%;
+        width: 166px;
+        height: 168px;
+        left: -23.3%;
+        top: 28%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
 }
@@ -571,6 +635,7 @@ button:active {
     .keys {
         display: none;
     }
+
     .centers {
         display: block;
         position: absolute;
@@ -670,6 +735,7 @@ button:active {
     .keys {
         display: none;
     }
+
     .centers {
         display: block;
         position: absolute;
@@ -768,6 +834,7 @@ button:active {
     .keys {
         display: none;
     }
+
     .left-hand .controler:after,
     .left-hand .controler:before {
         content: "";
@@ -828,6 +895,7 @@ button:active {
         margin-left: 0px;
         bottom: 34px;
     }
+
     .left-hand .controler {
         display: block;
         width: 163px;
@@ -845,7 +913,7 @@ button:active {
         -moz-transform: translate(65%, -466%);
         -ms-transform: translate(65%, -466%);
         -o-transform: translate(65%, -466%);
-}
+    }
 
     #canvas {
         width: 86%;
@@ -870,15 +938,17 @@ button:active {
     }
 }
 
- @media (min-width: 425px) and (max-width: 500px) {
+@media (min-width: 425px) and (max-width: 500px) {
     .keys {
         display: none;
     }
+
     .centers {
         display: block;
         position: absolute;
         transform: translate(47%, -917%);
     }
+
     .left-hand .controler {
         display: block;
         width: 188px;
@@ -887,6 +957,7 @@ button:active {
         top: 63%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
+
     .left-hand .controler button.left {
         border-right: none !important;
         box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
@@ -896,6 +967,7 @@ button:active {
         margin-top: -18px;
         left: 39px;
     }
+
     .left-hand .controler button.right {
         border-left: none !important;
         box-shadow: inset 0 4px var(--rgbab), inset 0 -4px var(--rgbap);
@@ -905,6 +977,7 @@ button:active {
         height: 50px;
         width: 47px;
     }
+
     .left-hand .controler button.top {
         border-bottom: none !important;
         box-shadow: inset 0 4px var(--rgbab);
@@ -914,6 +987,7 @@ button:active {
         width: 50px;
         height: 43px;
     }
+
     .left-hand .controler button.bottom {
         border-top: none !important;
         box-shadow: inset 0 -4px var(--rgbap);
@@ -923,6 +997,7 @@ button:active {
         margin-left: -2px;
         bottom: 37px;
     }
+
     #canvas {
         width: 84%;
         height: 36%;
@@ -951,9 +1026,11 @@ button:active {
         width: 97%;
         height: auto;
     }
+
     .keys {
         display: none;
     }
+
     .left-hand .controler:after,
     .left-hand .controler:before {
         content: "";
@@ -1014,6 +1091,7 @@ button:active {
         margin-left: 0px;
         bottom: 34px;
     }
+
     .centers {
         display: block;
         position: absolute;
@@ -1059,6 +1137,7 @@ button:active {
     .keys {
         display: none;
     }
+
     .centers {
         display: block;
         position: absolute;
@@ -1168,6 +1247,7 @@ button:active {
     .keys {
         display: none;
     }
+
     .left-hand .controler:after,
     .left-hand .controler:before {
         content: "";
@@ -1245,10 +1325,12 @@ button:active {
         top: 52%;
         animation: scale 2s cubic-bezier(0.89, 0.2, 0, 1.03);
     }
+
     #gameboy {
         width: 72%;
         height: auto;
     }
+
     .centers {
         display: block;
         position: absolute;
