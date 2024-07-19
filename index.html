@@ -46,6 +46,20 @@
     <button class="saltarButton" onclick="irAInvitacion()">Saltar</button>
   </div>
 
+  <!-- Popup de reglas -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>Reglas</h2>
+      <p>Debes manejar a Gini(Perro) con la cruz <img src="img/cross.png" alt="cross" width="30px"
+          style="transform: translate(0px, 10px);"> y dirigirlo hacia la
+        puerta de la iglesia.</p>
+      <hr>
+      <p>Para saltar el juego, presiona la tecla <img src="img/salto.png" alt="salto" width="50px"
+          style="transform: translate(8px, 17px);"></p>
+      <button id="closePopup">Cerrar</button>
+    </div>
+  </div>
+
   <footer></footer>
 
   <script src="./public/src/entities.js"></script>
@@ -88,6 +102,16 @@
           event.preventDefault();
         });
       });
+
+      // Mostrar el popup al cargar la página
+      const popup = document.getElementById('popup');
+      const closePopup = document.getElementById('closePopup');
+
+      closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+      });
+
+      popup.style.display = 'block';
     });
   </script>
 </body>
