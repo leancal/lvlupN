@@ -22,7 +22,7 @@
      width: 100%;
  }
 
- #gameboy {
+ /* #gameboy {
      position: absolute;
      width: 87%;
      height: auto;
@@ -61,9 +61,7 @@
      width: 840px;
      height: 280px;
      padding: 7px 9px 25px 9px;
-     /* background-image: url(img/bgwhite.jpg); */
      background-repeat: no-repeat;
-     /* background-attachment: fixed; */
      background-size: cover;
      z-index: 1;
  }
@@ -76,18 +74,13 @@
      margin: 15px 0px 12px 0;
      border-radius: 5px;
      cursor: pointer;
- }
+ } */
 
- @media (max-width: 1280px) {
-     #gameboy {
-         width: 100%;
-         height: auto;
-     }
-
+ @media (min-width: 701px) and (max-width: 768px) {
      main {
+         position: absolute;
          z-index: 3;
-         transform: translate(-272px, 1px);
-         width: 100%;
+         transform: translate(2%, -82%);
      }
 
      header {
@@ -96,258 +89,37 @@
      }
 
      .gameContent {
-         transform: translate(465px, -7px);
-         width: 840px;
-         height: 280px;
+         transform: translate(24%, -37%);
+         height: 29%;
          padding: 7px 9px 25px 9px;
-         /* background-image: url(img/bgwhite.jpg); */
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
          z-index: 1;
      }
 
      main button {
-         font-size: 21px;
-         position: relative;
-         width: 50%;
+         width: 66%;
+         font-size: 75%;
          padding: 10px;
-         margin: 15px 0px 12px 0;
+         margin: 10px 0px 6px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 21px;
-     }
- }
-
- @media (max-width: 1280px) {
-     #gameboy {
-         width: 100%;
-         height: auto;
-     }
-
-     main {
-         z-index: 3;
-         transform: translate(-272px, 1px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(465px, -7px);
-         width: 840px;
-         height: 280px;
-         padding: 7px 9px 25px 9px;
-         /* background-image: url(img/bgwhite.jpg); */
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         font-size: 21px;
-         position: relative;
-         width: 50%;
-         padding: 10px;
-         margin: 15px 0px 12px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 21px;
-     }
- }
-
- @media (max-width: 884px) {
-     #gameboy {
-         width: 132%;
-         height: auto;
-     }
-
-     main {
-         z-index: 3;
-         transform: translate(-234px, 1px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(280px, -7px);
-         width: 840px;
-         height: 280px;
-         padding: 7px 9px 25px 9px;
-         /* background-image: url(img/bgwhite.jpg); */
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         font-size: 18px;
-         position: relative;
-         width: 76%;
-         padding: 10px;
-         margin: 15px 0px 12px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 21px;
-     }
- }
-
- @media (max-width: 834px) {
-     #gameboy {
-         width: 132%;
-         height: auto;
-     }
-
-     main {
-         z-index: 3;
-         transform: translate(-227px, 1px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(247px, -7px);
-         width: 840px;
-         height: 280px;
-         padding: 7px 9px 25px 9px;
-         /* background-image: url(img/bgwhite.jpg); */
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         font-size: 18px;
-         position: relative;
-         width: 76%;
-         padding: 10px;
-         margin: 15px 0px 12px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 21px;
-     }
- }
-
- @media (max-width: 820px) {
-     #gameboy {
-         width: 132%;
-         height: auto;
-     }
-
-     main {
-         z-index: 3;
-         transform: translate(-227px, 1px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(247px, -7px);
-         width: 840px;
-         height: 280px;
-         padding: 7px 9px 25px 9px;
-         /* background-image: url(img/bgwhite.jpg); */
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         font-size: 18px;
-         position: relative;
-         width: 76%;
-         padding: 10px;
-         margin: 15px 0px 12px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 21px;
-     }
- }
-
- @media (max-width: 768px) {
-     main {
-         z-index: 3;
-         transform: translate(-197px, -176px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(196px, -201px);
-         width: 840px;
-         height: 280px;
-         padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         font-size: 18px;
-         position: relative;
-         width: 94%;
-         padding: 10px;
-         margin: 15px 0px 12px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 21px;
+         font-size: 70%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 73%;
+         width: 64%;
          height: auto;
      }
  }
 
- @media (max-width: 428px) {
+ @media (min-width: 601px) and (max-width: 700px) {
      main {
+         position: absolute;
          z-index: 3;
-         transform: translate(-171px, -132px);
-         width: 100%;
+         transform: translate(2%, -82%);
      }
 
      header {
@@ -356,42 +128,37 @@
      }
 
      .gameContent {
-         transform: translate(77px, -132px);
-         width: 824px;
-         height: 223px;
+         transform: translate(24%, -37%);
+         height: 29%;
          padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
          z-index: 1;
      }
 
      main button {
-         position: relative;
-         width: 159%;
+         width: 66%;
+         font-size: 75%;
          padding: 10px;
-         margin: 5px 0px 4px 0;
+         margin: 10px 0px 6px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 13px;
+         font-size: 70%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 100%;
+         width: 75%;
          height: auto;
      }
  }
 
- @media (max-width: 414px) {
+ @media (min-width: 501px) and (max-width: 600px) {
      main {
+         position: absolute;
          z-index: 3;
-         transform: translate(-171px, -132px);
-         width: 100%;
+         transform: translate(2%, -82%);
      }
 
      header {
@@ -400,42 +167,37 @@
      }
 
      .gameContent {
-         transform: translate(77px, -132px);
-         width: 759px;
-         height: 216px;
+         transform: translate(24%, -37%);
+         height: 29%;
          padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
          z-index: 1;
      }
 
      main button {
-         position: relative;
-         width: 159%;
+         width: 66%;
+         font-size: 75%;
          padding: 10px;
-         margin: 5px 0px 4px 0;
+         margin: 10px 0px 6px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 13px;
+         font-size: 70%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 100%;
+         width: 89%;
          height: auto;
      }
  }
 
- @media (max-width: 412px) {
+ @media (min-width: 375px) and (max-width: 500px) {
      main {
+         position: absolute;
          z-index: 3;
-         transform: translate(-171px, -132px);
-         width: 100%;
+         transform: translate(2%, -89%);
      }
 
      header {
@@ -444,43 +206,36 @@
      }
 
      .gameContent {
-         transform: translate(77px, -132px);
-         width: 759px;
-         height: 216px;
+         transform: translate(24%, -37%);
+         height: 29%;
          padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
          z-index: 1;
      }
 
      main button {
-         position: relative;
-         width: 159%;
+         width: 68%;
+         font-size: 69%;
          padding: 10px;
-         margin: 5px 0px 4px 0;
+         margin: 7px 0px 4px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 13px;
+         font-size: 70%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 100%;
+         width: 104%;
          height: auto;
      }
  }
 
- @media (max-width: 394px) {
-
+ @media (min-width: 320px) and (max-width: 374px) {
      main {
          z-index: 3;
-         transform: translate(-167px, -118px);
-         width: 100%;
+         transform: translate(-147%, -95%);
      }
 
      header {
@@ -489,42 +244,40 @@
      }
 
      .gameContent {
-         transform: translate(72px, -138px);
-         width: 776px;
-         height: 175px;
+         transform: translate(24%, -37%);
+         height: 29%;
          padding: 7px 9px 25px 9px;
          background-image: url(img/bgwhite.jpg);
          background-repeat: no-repeat;
-         /* background-attachment: fixed; */
          background-size: cover;
          z-index: 1;
      }
 
      main button {
-         width: 166%;
+         width: 165%;
+         font-size: 58%;
          padding: 10px;
-         margin: 5px 0px 4px 0;
+         margin: 1px 0px 4px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 13px;
+         font-size: 70%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 100%;
+         width: 104%;
          height: auto;
      }
  }
 
- @media (max-width: 375px) {
+ @media (min-width: 300px) and (max-width: 319px) {
 
      main {
          z-index: 3;
-         transform: translate(-160px, -110px);
-         width: 100%;
+         transform: translate(-172%, -83%);
      }
 
      header {
@@ -533,120 +286,31 @@
      }
 
      .gameContent {
-         transform: translate(66px, -131px);
-         width: 776px;
-         height: 175px;
+         transform: translate(22%, -52%);
+         height: 20%;
          padding: 7px 9px 25px 9px;
          background-image: url(img/bgwhite.jpg);
          background-repeat: no-repeat;
-         /* background-attachment: fixed; */
          background-size: cover;
          z-index: 1;
      }
 
      main button {
-         width: 171%;
+         width: 165%;
+         font-size: 58%;
          padding: 10px;
-         margin: 5px 0px 4px 0;
+         margin: 1px 0px 4px 0;
          border-radius: 5px;
          cursor: pointer;
      }
 
      h1 {
-         font-size: 13px;
+         font-size: 61%;
      }
 
      #gameboy {
          z-index: 2;
-         width: 97%;
-         height: auto;
-     }
- }
-
- @media (max-width: 360px) {
-
-     main {
-         z-index: 3;
-         transform: translate(-160px, -110px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(55px, -123px);
-         width: 766px;
-         height: 151px;
-         padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         width: 171%;
-         padding: 10px;
-         margin: 5px 0px 4px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 13px;
-     }
-
-     #gameboy {
-         z-index: 2;
-         width: 97%;
-         height: auto;
-     }
- }
-
- @media (max-width: 320px) {
-
-     main {
-         z-index: 3;
-         transform: translate(-140px, -91px);
-         width: 100%;
-     }
-
-     header {
-         margin-top: 6px;
-         z-index: 1;
-     }
-
-     .gameContent {
-         transform: translate(55px, -104px);
-         width: 599px;
-         height: 151px;
-         padding: 7px 9px 25px 9px;
-         background-image: url(img/bgwhite.jpg);
-         background-repeat: no-repeat;
-         /* background-attachment: fixed; */
-         background-size: cover;
-         z-index: 1;
-     }
-
-     main button {
-         width: 170%;
-         padding: 7px;
-         margin: 5px 0px 4px 0;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-     h1 {
-         font-size: 13px;
-     }
-
-     #gameboy {
-         z-index: 2;
-         width: 97%;
+         width: 104%;
          height: auto;
      }
  }

@@ -16,12 +16,12 @@
 <body>
     <div class="game">
         <img id="gameboy" src="img/gameBoybg.png" alt="Gameboy">
-        <div class="gameContent">
+        <!-- <div class="gameContent">
             <header>
                 <h1>¿Vas a la fiesta?</h1>
             </header>
 
-        </div>
+        </div> -->
         <main>
             <button onclick="irAFormulario()">¡Sí, voy!</button>
             <button onclick="noVoy()">No puedo ir</button>
@@ -44,7 +44,7 @@
         function cambiarImagen() {
             const gameboy = document.getElementById('gameboy');
             if (window.innerWidth <= 768 || window.innerWidth <= 425) {
-                gameboy.src = 'img/gbPoket.png';
+                gameboy.src = 'img/gbPoketinv.png';
             } else {
                 gameboy.src = 'img/gameBoybg.png';
             }
