@@ -12,6 +12,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <title>Game Landing</title>
+  <style>
+    #muteButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #muteButton img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -44,6 +59,9 @@
   <div class="gameover centers">
     <button class="restartButton" onclick="reiniciar()">Restart</button>
     <button class="saltarButton" onclick="irAInvitacion()">Saltar</button>
+    <button class="saltarButton" id="muteButton" onclick="toggleMute()">
+      <img id="muteIcon" src="img/speaker.png" alt="Mute Button">
+    </button>
   </div>
 
   <!-- Popup de reglas -->
@@ -61,6 +79,10 @@
   </div>
 
   <footer></footer>
+
+
+
+  <audio id="backgroundMusic" src="./sounds/pokemon.wav" loop></audio>
 
   <script src="./public/src/entities.js"></script>
   <script src="./public/src/EventsManager.js"></script>
@@ -109,10 +131,28 @@
 
       closePopup.addEventListener('click', () => {
         popup.style.display = 'none';
+        // Reproducir la música de fondo al cerrar el popup
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.play().catch(error => {
+          console.log('Error al reproducir la música:', error);
+        });
       });
 
       popup.style.display = 'block';
     });
+
+    function toggleMute() {
+      const backgroundMusic = document.getElementById('backgroundMusic');
+      const muteIcon = document.getElementById('muteIcon');
+
+      if (backgroundMusic.muted) {
+        backgroundMusic.muted = false;
+        muteIcon.src = 'img/speaker.png';
+      } else {
+        backgroundMusic.muted = true;
+        muteIcon.src = 'img/speaker-muted.png';
+      }
+    }
   </script>
 </body>
 
