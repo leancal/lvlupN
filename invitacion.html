@@ -18,21 +18,31 @@
         <div class="game">
             <img id="gameboy" src="img/gameBoybg.png" alt="Gameboy">
 
-            <main>
+            <!-- <main>
                 <button onclick="irAFormulario()">¡Sí, voy!</button>
                 <button onclick="noVoy()">No puedo ir</button>
                 <button onclick="volver()">Volver</button>
-            </main>
+            </main> -->
+            <div class="gameover centers">
+                <button class="restartButton" onclick="irAFormulario()">¡Sí, voy!</button>
+                <button class="saltarButton" onclick="noVoy()">No voy</button>
+                <div>
+                    <button class="muteButton" id="muteButton"  onclick="volver()">Volver</button>
+                </div>
+                
+              </div>
 
         </div>
-        <div class="card">
-            <h2>Información mucho muy importante</h2>
-            <p>Fecha y hora de la invitación: 19 de octubre de 2024</p>
-            <p>Hora de la invitación: 19:00</p>
-            <p>Ubicación: Iglesia</p>
+        <!-- <div class="card">
+            <h2>NOS CASAMOS!!!!</h2>
+            <p>18 de octubre de 2024</p>
+            <p>20:00 hs Parroquia San Luis Gonzaga</p>
+            <p>Baigorria 4260, CABA</p>
+            <p>21:00 hs La Colonial Eventos</p>
+            <p>Moron 2544, CABA</p>
 
             <button onclick="cerrarCard()">Cerrar</button>
-        </div>
+        </div> -->
     </div>
     <script>
         function irAFormulario() {

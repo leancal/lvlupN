@@ -24,7 +24,7 @@ body {
 }
 
 #gameboy {
-    width: 50%;
+    width: 123%;
     height: auto;
 }
 
@@ -59,9 +59,45 @@ body {
     background-color: #007BFF;
     color: white;
 }
+.restartButton {
+    background-color: #8eff1c;
+    font-size: 9px;
+    height: 18px;
+    width: 102px;
+    border-radius: 10px;
+}
+.saltarButton {
+    background-color: #8eff1c;
+    font-size: 9px;
+    height: 18px;
+    width: 77px;
+    border-radius: 10px;
+}
 
+.muteButton {
+    background-color: #797979;
+    font-size: 9px;
+    height: 18px;
+    width: 77px;
+    border-radius: 10px;
+}
 .card button:hover {
     background-color: #0056b3;
+}
+
+.centers {
+    transform: translate(0px, -180px);
+}
+
+.center {
+    text-align: center;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* main {
@@ -77,7 +113,58 @@ main button {
     cursor: pointer;
 } */
 
+@media (min-width: 769px) and (max-width: 840px) {
+    
+
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(0%, 369%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
+    #gameboy {
+        width: 131%;
+        height: auto;
+    }
+}
+
 @media (min-width: 701px) and (max-width: 768px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(-1%, 549%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
     main {
         position: absolute;
         z-index: 3;
@@ -110,13 +197,33 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
-        width: 64%;
+        width: 124%;
         height: auto;
     }
 }
 
 @media (min-width: 601px) and (max-width: 700px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(-1%, 549%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
     main {
         position: absolute;
         z-index: 3;
@@ -149,13 +256,33 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
-        width: 75%;
+        width: 123%;
         height: auto;
     }
 }
 
 @media (min-width: 501px) and (max-width: 600px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(-1%, 549%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
     main {
         position: absolute;
         z-index: 3;
@@ -188,13 +315,33 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
-        width: 89%;
+        width: 120%;
         height: auto;
     }
 }
 
 @media (min-width: 375px) and (max-width: 500px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(-1%, 446%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
     main {
         position: absolute;
         z-index: 3;
@@ -227,13 +374,33 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
         width: 104%;
         height: auto;
     }
 }
 
 @media (min-width: 320px) and (max-width: 374px) {
+    .centers {
+        display: block;
+        position: absolute;
+        transform: translate(-1%, 446%);
+    }
+
+    .restartButton {
+        background-color: #2fff00;
+        font-size: 9px;
+        height: 18px;
+        width: 99px;
+        border-radius: 10px;
+    }
+
+    .saltarButton {
+        background-color: #797979;
+        font-size: 9px;
+        height: 18px;
+        width: 77px;
+        border-radius: 10px;
+    }
     main {
         z-index: 3;
         transform: translate(-147%, -95%);
@@ -268,13 +435,15 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
         width: 104%;
         height: auto;
     }
 }
 
 @media (min-width: 300px) and (max-width: 319px) {
+    .centers {
+        transform: translate(0px, -95px);
+    }
 
     main {
         z-index: 3;
@@ -310,8 +479,17 @@ main button {
     }
 
     #gameboy {
-        z-index: 2;
         width: 104%;
+        height: auto;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 299px) {
+    .centers {
+        transform: translate(0px, -73px);
+    }
+    #gameboy {
+        width: 98%;
         height: auto;
     }
 }

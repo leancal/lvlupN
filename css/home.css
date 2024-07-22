@@ -76,6 +76,14 @@ span {
     border-radius: 10px;
 }
 
+.muteButton {
+    background-color: #8eff1c;
+    font-size: 9px;
+    height: 18px;
+    width: 77px;
+    border-radius: 10px;
+}
+
 .game {
     display: flex;
     justify-content: center;

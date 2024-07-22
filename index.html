@@ -14,18 +14,29 @@
   <title>Game Landing</title>
   <style>
     #muteButton {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
+    position: absolute;
+    top: 39px;
+    right: -3%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
     #muteButton img {
       width: 30px;
       height: 30px;
     }
+    @media (min-width: 375px) and (max-width: 424px) {
+      #muteButton {
+        position: absolute;
+        top: 39px;
+        right: 26%;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
   </style>
 </head>
 
@@ -59,8 +70,8 @@
   <div class="gameover centers">
     <button class="restartButton" onclick="reiniciar()">Restart</button>
     <button class="saltarButton" onclick="irAInvitacion()">Saltar</button>
-    <button class="saltarButton" id="muteButton" onclick="toggleMute()">
-      <img id="muteIcon" src="img/speaker.png" alt="Mute Button">
+    <button class="muteButton" id="muteButton" onclick="toggleMute()">
+      <img id="muteIcon" src="img/speaker-wave-2-svgrepo-com.svg" alt="Mute Button">
     </button>
   </div>
 
@@ -147,10 +158,10 @@
 
       if (backgroundMusic.muted) {
         backgroundMusic.muted = false;
-        muteIcon.src = 'img/speaker.png';
+        muteIcon.src = 'img/speaker-wave-2-svgrepo-com.svg';
       } else {
         backgroundMusic.muted = true;
-        muteIcon.src = 'img/speaker-muted.png';
+        muteIcon.src = 'img/speaker-xmark-svgrepo-com.svg';
       }
     }
   </script>
