@@ -114,6 +114,7 @@
     main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
  main button {
     font-size: 21px;
@@ -123,13 +124,28 @@
     color: black;
  }
  .submit-button {
+    width: 166px;
     background-color: #8eff1c;
     font-size: 9px;
     border-radius: 10px;
 }
+
+
+.music {
+    width: 83px;
+}
+.coin {
+    width: 100px;
+    height: 75px;
+}
     header h1 {
       text-align: center;
     }
+    .down_note {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
   </style>
 
   <body>
@@ -175,10 +191,14 @@
         <button  type="submit">Confirmar</button>
       </form>
 
-      <!-- Botón para regresar a la página de invitación -->
-      <button class="submit-button" onclick="regresarAInvitacion()">Hace tu regalo</button>
-      <button class="submit-button" onclick="regresarAInvitacion()">Agrega musica para la fiesta</button>
+      <div class="down_note">
+      <button class="submit-button" onclick="regresarAInvitacion()">
+       <p>Hace tu regalo </p> 
+        <img class="coin" src="./img/coin.png" alt="gift" ></button>
+      <button class="submit-button" onclick="musica()"><p>Agrega musica </p> 
+        <img class="music" src="./img/spotify.png" alt="gift" ></button></button>
       <button class="submit-button" onclick="regresarAInvitacion()">Regresar a la invitación</button>
+      </div>
     </main>
 
     <script>
@@ -236,6 +256,10 @@
       // Función para regresar a la página de invitación
       function regresarAInvitacion() {
         window.location.href = "invitacion.html";
+      }
+
+      function musica() {
+        window.location.href = "https://open.spotify.com/playlist/3dggbdw7G9brIeeuRUH84m?si=c48dea487b9e434c&pt=ead7b887d9fb8f2451ec6a0b5580ea44";
       }
     </script>
   </body>
